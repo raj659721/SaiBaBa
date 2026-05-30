@@ -59,16 +59,20 @@ const BentoGrid = () => {
                     : 'border border-white/5'
                 }`}
               >
-                {/* Gradient Background */}
-                <div className={`absolute inset-0 ${
-                  isSignature
-                    ? 'bg-gradient-to-br from-white/10 to-luxury-teal/10'
-                    : `bg-gradient-to-br ${
-                        index === 1 ? 'from-white/8 to-white/3' :
-                        index === 2 ? 'from-luxury-teal/10 to-luxury-dark' :
-                        'from-white/5 to-luxury-dark'
-                      }`
-                } transition-all duration-700`} />
+                {/* Image Background */}
+                {card.image && (
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
+
+                {/* Dark overlay on top of image */}
+                <div className="absolute inset-0 bg-luxury-dark/50 group-hover:bg-luxury-dark/30 transition-all duration-700" />
+
+                {/* Gradient fade at bottom for text legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark/90 via-luxury-dark/20 to-transparent" />
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-luxury-teal/0 group-hover:bg-luxury-teal/5 transition-all duration-700" />
