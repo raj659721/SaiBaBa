@@ -8,6 +8,7 @@ import Header from './components/Header'
 import HeroCanvas from './components/HeroCanvas'
 import BentoGrid from './components/BentoGrid'
 import AmenitiesSection from './components/AmenitiesSection'
+import HoverRevealSection from './components/HoverRevealSection'
 import SpacesPage from './components/SpacesPage'
 import ContactPage from './components/ContactPage'
 import Footer from './components/Footer'
@@ -101,6 +102,7 @@ function App() {
           <Route path="/" element={
             <main className="bg-luxury-dark">
               <HeroCanvas />
+              <HoverRevealSection />
               <AmenitiesSection />
               <BentoGrid />
             </main>
