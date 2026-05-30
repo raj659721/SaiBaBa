@@ -10,11 +10,11 @@ const products = [
 
 const BestSellingProducts = () => {
   return (
-    <section className="bg-[#0f0d0c] py-32 px-4 md:px-12 text-white">
+    <section className="bg-jet-2 py-32 px-4 md:px-12 text-smoke">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <p className="font-mono text-xs tracking-[0.3em] text-luxury-gold uppercase mb-4">Curated Selection</p>
-          <h2 className="text-4xl md:text-5xl font-serif">Best Selling Masterpieces</h2>
+          <p className="font-mono text-xs tracking-[0.3em] text-silver uppercase mb-4">Curated Selection</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-smoke">Best Selling Masterpieces</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -29,21 +29,21 @@ const BestSellingProducts = () => {
               style={{ transformPerspective: 1000 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 border border-white/5">
-                <div 
+              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 border border-smoke/6">
+                <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${product.image})` }}
                 />
-                <div className="absolute inset-0 bg-luxury-dark/20 group-hover:bg-transparent transition-colors duration-500" />
+                <div className="absolute inset-0 bg-jet/20 group-hover:bg-transparent transition-colors duration-500" />
                 <div className="absolute bottom-4 left-4 right-4 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <button className="w-full bg-white/10 backdrop-blur-md border border-white/20 text-white py-3 rounded-full font-mono text-xs tracking-widest uppercase hover:bg-luxury-gold hover:text-luxury-dark transition-colors">
+                  <button className="w-full bg-smoke/10 backdrop-blur-md border border-smoke/20 text-smoke py-3 rounded-full font-mono text-xs tracking-widest uppercase hover:bg-smoke hover:text-jet transition-colors">
                     View Details
                   </button>
                 </div>
               </div>
               <div className="text-center">
-                <h3 className="font-serif text-xl mb-1">{product.name || product.title}</h3>
-                <p className="font-mono text-luxury-gold">{product.price}</p>
+                <h3 className="font-serif text-xl mb-1 text-smoke">{product.name || product.title}</h3>
+                <p className="font-mono text-silver">{product.price}</p>
               </div>
             </motion.div>
           ))}

@@ -24,35 +24,34 @@ export default function HoverRevealSection() {
 
   return (
     <section
-      className="relative bg-cream-2 overflow-hidden py-32 px-6 md:px-16"
+      className="relative bg-smoke-2 overflow-hidden py-32 px-6 md:px-16"
       onMouseMove={(e) => { rawX.set(e.clientX + 24); rawY.set(e.clientY - 140); }}
     >
-      {/* Luxury ornamental medallion */}
+      {/* Ornamental medallion */}
       <svg
         className="absolute right-[-80px] top-1/2 -translate-y-1/2 w-[560px] h-[560px] pointer-events-none select-none"
         viewBox="0 0 400 400" fill="none"
-        style={{ opacity: 0.045 }}
+        style={{ opacity: 0.035 }}
       >
-        <path d="M200 20L380 200L200 380L20 200Z" stroke="#2C1A0E" strokeWidth="1.2"/>
-        <path d="M200 60L340 200L200 340L60 200Z" stroke="#2C1A0E" strokeWidth="0.6"/>
-        <path d="M200 100L300 200L200 300L100 200Z" stroke="#C9A84C" strokeWidth="0.8"/>
-        <path d="M200 140L260 200L200 260L140 200Z" stroke="#2C1A0E" strokeWidth="0.5"/>
-        <line x1="200" y1="20" x2="200" y2="380" stroke="#2C1A0E" strokeWidth="0.3"/>
-        <line x1="20" y1="200" x2="380" y2="200" stroke="#2C1A0E" strokeWidth="0.3"/>
-        <line x1="60" y1="60" x2="340" y2="340" stroke="#2C1A0E" strokeWidth="0.25"/>
-        <line x1="340" y1="60" x2="60" y2="340" stroke="#2C1A0E" strokeWidth="0.25"/>
-        <circle cx="200" cy="20" r="3.5" fill="#C9A84C"/>
-        <circle cx="380" cy="200" r="3.5" fill="#C9A84C"/>
-        <circle cx="200" cy="380" r="3.5" fill="#C9A84C"/>
-        <circle cx="20" cy="200" r="3.5" fill="#C9A84C"/>
-        <circle cx="200" cy="200" r="6" stroke="#C9A84C" strokeWidth="0.8" fill="none"/>
-        <circle cx="200" cy="200" r="2" fill="#C9A84C"/>
+        <path d="M200 20L380 200L200 380L20 200Z" stroke="#0C0C0C" strokeWidth="1.2"/>
+        <path d="M200 60L340 200L200 340L60 200Z" stroke="#0C0C0C" strokeWidth="0.6"/>
+        <path d="M200 100L300 200L200 300L100 200Z" stroke="#9A9A9A" strokeWidth="0.8"/>
+        <path d="M200 140L260 200L200 260L140 200Z" stroke="#0C0C0C" strokeWidth="0.5"/>
+        <line x1="200" y1="20" x2="200" y2="380" stroke="#0C0C0C" strokeWidth="0.3"/>
+        <line x1="20" y1="200" x2="380" y2="200" stroke="#0C0C0C" strokeWidth="0.3"/>
+        <line x1="60" y1="60" x2="340" y2="340" stroke="#0C0C0C" strokeWidth="0.25"/>
+        <line x1="340" y1="60" x2="60" y2="340" stroke="#0C0C0C" strokeWidth="0.25"/>
+        <circle cx="200" cy="20" r="3.5" fill="#9A9A9A"/>
+        <circle cx="380" cy="200" r="3.5" fill="#9A9A9A"/>
+        <circle cx="200" cy="380" r="3.5" fill="#9A9A9A"/>
+        <circle cx="20" cy="200" r="3.5" fill="#9A9A9A"/>
+        <circle cx="200" cy="200" r="6" stroke="#9A9A9A" strokeWidth="0.8" fill="none"/>
+        <circle cx="200" cy="200" r="2" fill="#9A9A9A"/>
       </svg>
-      {/* Subtle ambient */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-walnut/8 to-transparent" />
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gold/[0.04] blur-[120px]" />
+        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-jet/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-jet/8 to-transparent" />
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-jet/[0.02] blur-[120px]" />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto">
@@ -60,21 +59,21 @@ export default function HoverRevealSection() {
         {/* Header row */}
         <div className="flex items-end justify-between mb-20">
           <div>
-            <p className="font-mono text-[10px] tracking-[0.45em] text-gold uppercase mb-5">
+            <p className="font-mono text-[10px] tracking-[0.45em] text-jet-mid uppercase mb-5">
               Our Collections
             </p>
-            <h2 className="text-3xl md:text-[2.6rem] font-serif text-walnut leading-snug">
+            <h2 className="text-3xl md:text-[2.6rem] font-serif text-jet leading-snug">
               Shop by Category
             </h2>
           </div>
           <div className="hidden md:flex flex-col items-end gap-1">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-walnut/30 uppercase">{total}+ pieces</span>
-            <span className="font-mono text-[10px] tracking-[0.2em] text-walnut/20 uppercase">hover to preview</span>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-jet/25 uppercase">{total}+ pieces</span>
+            <span className="font-mono text-[10px] tracking-[0.2em] text-jet/18 uppercase">hover to preview</span>
           </div>
         </div>
 
         {/* Category list */}
-        <ul className="border-t border-walnut/10">
+        <ul className="border-t border-jet/10">
           {categories.map((cat, i) => {
             const isActive = active === i;
             const isFaded = active !== null && !isActive;
@@ -86,11 +85,11 @@ export default function HoverRevealSection() {
                 onMouseLeave={() => setActive(null)}
                 animate={{ opacity: isFaded ? 0.22 : 1 }}
                 transition={{ duration: 0.2 }}
-                className="relative border-b border-walnut/10 group"
+                className="relative border-b border-jet/10 group"
               >
-                {/* Gold sweep line */}
+                {/* Sweep line */}
                 <motion.span
-                  className="absolute bottom-[-1px] left-0 h-[1px] bg-gold"
+                  className="absolute bottom-[-1px] left-0 h-[1px] bg-jet"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: isActive ? 1 : 0 }}
                   style={{ transformOrigin: 'left', width: '100%' }}
@@ -99,7 +98,7 @@ export default function HoverRevealSection() {
 
                 <div className="flex items-center justify-between py-5 md:py-6">
                   <div className="flex items-center gap-6 md:gap-10">
-                    <span className="font-mono text-[10px] text-walnut/20 tabular-nums w-5 shrink-0">
+                    <span className="font-mono text-[10px] text-jet/18 tabular-nums w-5 shrink-0">
                       {String(i + 1).padStart(2, '0')}
                     </span>
 
@@ -108,7 +107,7 @@ export default function HoverRevealSection() {
                         className="font-serif text-xl md:text-2xl tracking-tight"
                         animate={{
                           x: isActive ? 8 : 0,
-                          color: isActive ? '#2C1A0E' : 'rgba(44,26,14,0.55)',
+                          color: isActive ? '#0C0C0C' : 'rgba(12,12,12,0.45)',
                         }}
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       >
@@ -116,7 +115,7 @@ export default function HoverRevealSection() {
                       </motion.span>
 
                       <motion.span
-                        className="hidden md:block font-mono text-[9px] tracking-[0.3em] uppercase text-gold"
+                        className="hidden md:block font-mono text-[9px] tracking-[0.3em] uppercase text-silver"
                         initial={{ opacity: 0, x: -4 }}
                         animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -4 }}
                         transition={{ duration: 0.3 }}
@@ -127,15 +126,15 @@ export default function HoverRevealSection() {
                   </div>
 
                   <div className="flex items-center gap-6 md:gap-10">
-                    <span className="hidden md:block font-mono text-[11px] text-walnut/30 tabular-nums">
+                    <span className="hidden md:block font-mono text-[11px] text-jet/25 tabular-nums">
                       {cat.count} pieces
                     </span>
 
                     <motion.div
                       className="w-8 h-8 rounded-none border flex items-center justify-center shrink-0"
                       animate={{
-                        backgroundColor: isActive ? 'rgba(201,168,76,0.12)' : 'rgba(44,26,14,0)',
-                        borderColor:     isActive ? 'rgba(201,168,76,0.5)'  : 'rgba(44,26,14,0.12)',
+                        backgroundColor: isActive ? 'rgba(12,12,12,0.06)' : 'rgba(12,12,12,0)',
+                        borderColor:     isActive ? 'rgba(12,12,12,0.35)' : 'rgba(12,12,12,0.12)',
                       }}
                       transition={{ duration: 0.3 }}
                     >
@@ -144,7 +143,7 @@ export default function HoverRevealSection() {
                         transition={{ duration: 0.3 }}
                       >
                         <path d="M1 10L10 1M10 1H3.5M10 1V7.5"
-                          stroke={isActive ? '#C9A84C' : 'rgba(44,26,14,0.3)'}
+                          stroke={isActive ? '#0C0C0C' : 'rgba(12,12,12,0.25)'}
                           strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"
                         />
                       </motion.svg>
@@ -158,12 +157,12 @@ export default function HoverRevealSection() {
 
         {/* Footer row */}
         <div className="mt-14 flex items-center justify-between">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-walnut/20 uppercase">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-jet/20 uppercase">
             Saibaba Home Decor — Since 2010
           </p>
           <motion.button
             whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.3em] uppercase text-walnut/50 border border-walnut/15 rounded-full px-5 py-3 hover:border-gold hover:text-gold hover:bg-gold/5 transition-all duration-300 group"
+            className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.3em] uppercase text-jet/45 border border-jet/15 rounded-full px-5 py-3 hover:border-jet hover:text-jet hover:bg-jet/4 transition-all duration-300 group"
           >
             View All Categories
             <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
@@ -184,8 +183,8 @@ export default function HoverRevealSection() {
             exit={{ opacity: 0, scale: 0.88, rotate: -3 }}
             transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="relative w-[200px] md:w-[230px] aspect-[3/4] overflow-hidden ring-1 ring-gold/20 shadow-[0_25px_60px_rgba(44,26,14,0.25)] rounded-xl">
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/80 to-transparent z-10" />
+            <div className="relative w-[200px] md:w-[230px] aspect-[3/4] overflow-hidden ring-1 ring-jet/15 shadow-[0_25px_60px_rgba(12,12,12,0.20)] rounded-xl">
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-silver/60 to-transparent z-10" />
 
               <motion.img
                 key={categories[active].image}
@@ -197,13 +196,13 @@ export default function HoverRevealSection() {
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-walnut/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-jet/80 via-transparent to-transparent" />
 
               <div className="absolute bottom-0 left-0 right-0 p-4">
-                <p className="text-cream font-serif text-sm leading-tight">{categories[active].name}</p>
+                <p className="text-smoke font-serif text-sm leading-tight">{categories[active].name}</p>
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="w-3 h-[1px] bg-gold" />
-                  <p className="text-gold font-mono text-[9px] tracking-[0.3em] uppercase">
+                  <div className="w-3 h-[1px] bg-silver" />
+                  <p className="text-silver font-mono text-[9px] tracking-[0.3em] uppercase">
                     {categories[active].count} Pieces
                   </p>
                 </div>

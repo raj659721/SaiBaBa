@@ -20,8 +20,6 @@ const HorizontalProductScroll = () => {
   useEffect(() => {
     if (!containerRef.current || !scrollWrapperRef.current) return;
 
-    // Calculate how far to scroll horizontally
-    // The width of the wrapper minus the viewport width
     const getScrollAmount = () => {
       let scrollWidth = scrollWrapperRef.current.scrollWidth;
       return -(scrollWidth - window.innerWidth);
@@ -36,7 +34,7 @@ const HorizontalProductScroll = () => {
         end: () => `+=${getScrollAmount() * -1}`,
         pin: true,
         scrub: 1,
-        invalidateOnRefresh: true // Recalculate on window resize
+        invalidateOnRefresh: true
       }
     });
 
@@ -47,28 +45,27 @@ const HorizontalProductScroll = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-luxury-dark text-white overflow-hidden h-screen flex flex-col justify-center relative">
+    <section ref={containerRef} className="bg-jet text-smoke overflow-hidden h-screen flex flex-col justify-center relative">
       <div className="absolute top-12 left-4 md:left-12 z-10">
-        <p className="font-mono text-xs tracking-[0.3em] text-luxury-gold uppercase mb-2">Our Collections</p>
-        <h2 className="text-4xl md:text-6xl font-serif">Handcrafted Elegance</h2>
+        <p className="font-mono text-xs tracking-[0.3em] text-silver uppercase mb-2">Our Collections</p>
+        <h2 className="text-4xl md:text-6xl font-serif text-smoke">Handcrafted Elegance</h2>
       </div>
 
-      {/* The horizontal scrolling track */}
       <div ref={scrollWrapperRef} className="flex gap-8 px-4 md:px-12 mt-20 w-[300vw] md:w-[200vw] h-[60vh]">
         {categories.map((cat, i) => (
-          <div 
-            key={cat.id} 
-            className="relative w-[80vw] md:w-[35vw] h-full shrink-0 rounded-2xl overflow-hidden group border border-white/5"
+          <div
+            key={cat.id}
+            className="relative w-[80vw] md:w-[35vw] h-full shrink-0 rounded-2xl overflow-hidden group border border-smoke/6"
           >
-            <div 
+            <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
               style={{ backgroundImage: `url(${cat.image})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark via-luxury-dark/20 to-transparent opacity-80" />
-            
+            <div className="absolute inset-0 bg-gradient-to-t from-jet via-jet/20 to-transparent opacity-80" />
+
             <div className="absolute bottom-8 left-8 right-8">
-              <span className="font-mono text-xs text-luxury-gold tracking-widest mb-2 block">0{i + 1}</span>
-              <h3 className="text-3xl font-serif text-white">{cat.title}</h3>
+              <span className="font-mono text-xs text-silver tracking-widest mb-2 block">0{i + 1}</span>
+              <h3 className="text-3xl font-serif text-smoke">{cat.title}</h3>
             </div>
           </div>
         ))}

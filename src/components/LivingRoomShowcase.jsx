@@ -27,13 +27,12 @@ const LivingRoomShowcase = () => {
       }
     });
 
-    // Reveal tags one by one
     itemsRef.current.forEach((el, i) => {
       if (!el) return;
-      tl.fromTo(el, 
+      tl.fromTo(el,
         { opacity: 0, scale: 0.5, y: 20 },
         { opacity: 1, scale: 1, y: 0, duration: 0.6, ease: 'back.out(1.7)' },
-        i * 0.2 // Stagger
+        i * 0.2
       );
     });
 
@@ -44,18 +43,18 @@ const LivingRoomShowcase = () => {
 
   return (
     <div ref={containerRef} className="w-full h-full relative">
-      <img 
-        src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000" 
-        alt="Luxury Living Room" 
+      <img
+        src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000"
+        alt="Luxury Living Room"
         className="w-full h-full object-cover"
       />
-      
-      {/* Dark overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark via-transparent to-luxury-dark/40" />
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-jet via-transparent to-jet/30" />
 
       {/* Interactive Hotspots */}
       {features.map((feature, i) => (
-        <div 
+        <div
           key={feature.id}
           ref={el => itemsRef.current[i] = el}
           className="absolute flex items-center gap-3 z-10"
@@ -63,18 +62,18 @@ const LivingRoomShowcase = () => {
         >
           {/* Pulsing Dot */}
           <div className="relative flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-luxury-gold opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-luxury-gold border-2 border-luxury-dark"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-silver opacity-60"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-smoke border-2 border-jet"></span>
           </div>
           {/* Label */}
-          <div className="backdrop-blur-md bg-black/40 border border-luxury-gold/30 px-4 py-2 rounded-full hidden md:block">
-            <span className="font-mono text-xs text-luxury-gold tracking-widest uppercase">{feature.title}</span>
+          <div className="backdrop-blur-md bg-jet/50 border border-smoke/15 px-4 py-2 rounded-full hidden md:block">
+            <span className="font-mono text-xs text-silver tracking-widest uppercase">{feature.title}</span>
           </div>
         </div>
       ))}
-      
+
       <div className="absolute bottom-12 left-12 z-10">
-        <h2 className="text-4xl md:text-6xl font-serif text-white">The Sai Baba<br/><span className="text-luxury-gold">Signature Room</span></h2>
+        <h2 className="text-4xl md:text-6xl font-serif text-smoke">The Sai Baba<br/><span className="text-silver">Signature Room</span></h2>
       </div>
     </div>
   );
