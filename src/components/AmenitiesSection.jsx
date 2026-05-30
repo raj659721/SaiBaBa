@@ -30,44 +30,43 @@ const amenitiesList = [
 
 const AmenitiesSection = () => {
   const [activeId, setActiveId] = useState(amenitiesList[0].id);
-
   const activeAmenity = amenitiesList.find(a => a.id === activeId);
 
   return (
-    <section className="bg-luxury-dark text-white py-32 px-4 md:px-12 min-h-screen flex items-center relative overflow-hidden">
-      {/* Blurred background glow */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-luxury-teal/10 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+    <section className="bg-cream text-walnut py-32 px-4 md:px-12 min-h-screen flex items-center relative overflow-hidden">
+      {/* Warm ambient glow */}
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
-        
-        {/* Left Side: Vertical Menu */}
+
+        {/* Left Side */}
         <div className="space-y-12">
           <div>
-            <h2 className="text-sm font-mono tracking-[0.3em] text-luxury-teal uppercase mb-4">The Experience</h2>
-            <h3 className="text-4xl md:text-6xl font-serif leading-tight">Uncompromising<br/>Standards</h3>
+            <h2 className="text-sm font-mono tracking-[0.3em] text-gold uppercase mb-4">The Experience</h2>
+            <h3 className="text-4xl md:text-6xl font-serif text-walnut leading-tight">Uncompromising<br/>Standards</h3>
           </div>
 
-          <div className="space-y-2 border-l border-white/10 pl-6">
+          <div className="space-y-2 border-l-2 border-cream-3 pl-6">
             {amenitiesList.map((amenity) => (
-              <div 
+              <div
                 key={amenity.id}
                 onMouseEnter={() => setActiveId(amenity.id)}
-                className={`py-6 cursor-pointer transition-all duration-500 relative group`}
+                className="py-6 cursor-pointer transition-all duration-500 relative group"
               >
-                {/* Active Indicator line */}
                 {activeId === amenity.id && (
-                  <motion.div 
+                  <motion.div
                     layoutId="activeIndicator"
-                    className="absolute -left-[25px] top-0 bottom-0 w-[2px] bg-luxury-teal"
+                    className="absolute -left-[27px] top-0 bottom-0 w-[3px] bg-gold rounded-full"
                   />
                 )}
-                
+
                 <div className="flex items-baseline gap-6">
-                  <span className={`font-mono text-xs transition-colors duration-300 ${activeId === amenity.id ? 'text-luxury-teal' : 'text-white/30'}`}>
+                  <span className={`font-mono text-xs transition-colors duration-300 ${activeId === amenity.id ? 'text-gold' : 'text-walnut/25'}`}>
                     {amenity.id}
                   </span>
                   <div>
-                    <h4 className={`text-2xl font-serif transition-colors duration-300 ${activeId === amenity.id ? 'text-white' : 'text-white/50 group-hover:text-white/80'}`}>
+                    <h4 className={`text-2xl font-serif transition-colors duration-300 ${activeId === amenity.id ? 'text-walnut' : 'text-walnut/45 group-hover:text-walnut/75'}`}>
                       {amenity.title}
                     </h4>
                     <AnimatePresence>
@@ -78,7 +77,7 @@ const AmenitiesSection = () => {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <p className="text-white/60 font-sans font-light mt-4 leading-relaxed max-w-sm">
+                          <p className="text-walnut-mid font-sans font-light mt-4 leading-relaxed max-w-sm">
                             {amenity.description}
                           </p>
                         </motion.div>
@@ -91,8 +90,8 @@ const AmenitiesSection = () => {
           </div>
         </div>
 
-        {/* Right Side: Large Image Preview */}
-        <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-white/5">
+        {/* Right Side */}
+        <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(44,26,14,0.12)] bg-cream-3 ring-1 ring-walnut/8">
           <AnimatePresence mode="wait">
             <motion.img
               key={activeAmenity.image}
@@ -101,11 +100,15 @@ const AmenitiesSection = () => {
               initial={{ scale: 1.1, opacity: 0, filter: 'blur(10px)' }}
               animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
               exit={{ scale: 1.05, opacity: 0, filter: 'blur(10px)' }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              transition={{ duration: 0.8, ease: 'easeInOut' }}
               className="absolute inset-0 w-full h-full object-cover"
             />
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark/80 via-transparent to-transparent pointer-events-none" />
+          {/* Bottom label tag */}
+          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-walnut/70 via-walnut/20 to-transparent p-8 pointer-events-none">
+            <p className="font-mono text-[9px] tracking-[0.3em] text-gold uppercase mb-1">{activeAmenity.id}</p>
+            <p className="font-serif text-xl text-cream">{activeAmenity.title}</p>
+          </div>
         </div>
 
       </div>

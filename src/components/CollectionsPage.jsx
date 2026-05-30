@@ -1,45 +1,44 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const collections = [
-  { id: 1, name: 'Curtains', tag: 'Window Dressing', count: 24, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&fit=crop', desc: 'Handcrafted floor-to-ceiling drapes in silk, linen and velvet.' },
-  { id: 2, name: 'Sofa Covers', tag: 'Upholstery', count: 18, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80&fit=crop', desc: 'Premium fitted covers in full-grain leather and woven fabric.' },
-  { id: 3, name: 'Bedsheets', tag: 'Bedroom Linen', count: 36, image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80&fit=crop', desc: '400-thread-count Egyptian cotton and bamboo weave collections.' },
-  { id: 4, name: 'Cushions', tag: 'Accent Pieces', count: 42, image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80&fit=crop', desc: 'Hand-embroidered and block-printed statement cushions.' },
-  { id: 5, name: 'Wallpapers', tag: 'Wall Coverings', count: 29, image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80&fit=crop', desc: 'Artisan wallpapers in grasscloth, foil and digital print.' },
-  { id: 6, name: 'Carpets', tag: 'Floor Textiles', count: 15, image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80&fit=crop', desc: 'Hand-knotted Persian, Moroccan and contemporary rugs.' },
-  { id: 7, name: 'Home Decor', tag: 'Curated Objects', count: 58, image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80&fit=crop', desc: 'Sculptural vases, candle holders and curated accent objects.' },
-  { id: 8, name: 'Handloom', tag: 'Artisan Craft', count: 21, image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80&fit=crop', desc: 'Handloom textiles woven by master craftsmen across India.' },
+  { id: 1, name: 'Curtains',    tag: 'Window Dressing', count: 24, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&fit=crop',   desc: 'Handcrafted floor-to-ceiling drapes in silk, linen and velvet.' },
+  { id: 2, name: 'Sofa Covers', tag: 'Upholstery',      count: 18, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80&fit=crop',   desc: 'Premium fitted covers in full-grain leather and woven fabric.' },
+  { id: 3, name: 'Bedsheets',   tag: 'Bedroom Linen',   count: 36, image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80&fit=crop',   desc: '400-thread-count Egyptian cotton and bamboo weave collections.' },
+  { id: 4, name: 'Cushions',    tag: 'Accent Pieces',   count: 42, image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80&fit=crop',   desc: 'Hand-embroidered and block-printed statement cushions.' },
+  { id: 5, name: 'Wallpapers',  tag: 'Wall Coverings',  count: 29, image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80&fit=crop',   desc: 'Artisan wallpapers in grasscloth, foil and digital print.' },
+  { id: 6, name: 'Carpets',     tag: 'Floor Textiles',  count: 15, image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80&fit=crop',   desc: 'Hand-knotted Persian, Moroccan and contemporary rugs.' },
+  { id: 7, name: 'Home Decor',  tag: 'Curated Objects', count: 58, image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80&fit=crop',   desc: 'Sculptural vases, candle holders and curated accent objects.' },
+  { id: 8, name: 'Handloom',    tag: 'Artisan Craft',   count: 21, image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80&fit=crop',   desc: 'Handloom textiles woven by master craftsmen across India.' },
 ];
 
 export default function CollectionsPage() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <main className="min-h-screen bg-[#0d0a07] text-off-white pt-36 pb-32 px-6 md:px-12">
+    <main className="min-h-screen bg-cream text-walnut pt-36 pb-32 px-6 md:px-12">
       {/* Header */}
       <div className="max-w-7xl mx-auto mb-20">
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-          className="font-mono text-[10px] tracking-[0.45em] text-luxury-teal uppercase mb-5"
+          className="font-mono text-[10px] tracking-[0.45em] text-gold uppercase mb-5"
         >
           Bespoke Furnishings
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-serif leading-none text-off-white"
+          className="text-5xl md:text-7xl font-serif leading-none text-walnut"
         >
           Our Collections
         </motion.h1>
       </div>
 
-      {/* Top accent line */}
       <div className="max-w-7xl mx-auto">
-        <div className="h-[1px] w-full bg-gradient-to-r from-luxury-teal/50 via-white/10 to-transparent mb-0" />
+        <div className="h-[1px] w-full bg-gradient-to-r from-gold/40 via-walnut/10 to-transparent mb-0" />
       </div>
 
       {/* Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-b border-white/[0.06]">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border-b border-walnut/[0.08]">
         {collections.map((item, i) => (
           <motion.div
             key={item.id}
@@ -48,44 +47,39 @@ export default function CollectionsPage() {
             transition={{ duration: 0.7, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
             onMouseEnter={() => setHovered(item.id)}
             onMouseLeave={() => setHovered(null)}
-            className="relative group overflow-hidden border-t border-r border-white/[0.06] cursor-pointer"
+            className="relative group overflow-hidden border-t border-r border-walnut/[0.08] cursor-pointer bg-cream hover:bg-cream-2 transition-colors duration-500"
             style={{ borderRight: (i + 1) % 4 === 0 ? 'none' : undefined }}
           >
-            {/* Image */}
             <div className="relative h-64 overflow-hidden">
               <motion.img
-                src={item.image}
-                alt={item.name}
+                src={item.image} alt={item.name}
                 className="w-full h-full object-cover"
                 animate={{ scale: hovered === item.id ? 1.06 : 1 }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0a07] via-[#0d0a07]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/20 to-transparent" />
 
-              {/* Tag chip */}
               <div className="absolute top-4 left-4">
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-luxury-teal border border-luxury-teal/30 px-2.5 py-1 bg-[#0d0a07]/60 backdrop-blur-sm">
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-gold border border-gold/30 px-2.5 py-1 bg-cream/80 backdrop-blur-sm">
                   {item.tag}
                 </span>
               </div>
             </div>
 
-            {/* Content */}
             <div className="p-6 pb-8">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="font-serif text-xl text-off-white">{item.name}</h3>
-                <span className="font-mono text-[10px] text-white/30 tabular-nums mt-1">{item.count}</span>
+                <h3 className="font-serif text-xl text-walnut">{item.name}</h3>
+                <span className="font-mono text-[10px] text-walnut/25 tabular-nums mt-1">{item.count}</span>
               </div>
-              <p className="text-sm text-white/45 font-light leading-relaxed mb-5">{item.desc}</p>
+              <p className="text-sm text-walnut-mid font-light leading-relaxed mb-5">{item.desc}</p>
 
               <motion.div
                 className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase"
-                animate={{ color: hovered === item.id ? '#008080' : 'rgba(255,255,255,0.3)' }}
+                animate={{ color: hovered === item.id ? '#C9A84C' : 'rgba(44,26,14,0.3)' }}
                 transition={{ duration: 0.3 }}
               >
                 <span>Explore</span>
-                <motion.svg
-                  width="10" height="10" viewBox="0 0 10 10" fill="none"
+                <motion.svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                   animate={{ x: hovered === item.id ? 3 : 0, y: hovered === item.id ? -3 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -94,9 +88,8 @@ export default function CollectionsPage() {
               </motion.div>
             </div>
 
-            {/* Bottom teal line on hover */}
             <motion.div
-              className="absolute bottom-0 left-0 h-[1px] bg-luxury-teal"
+              className="absolute bottom-0 left-0 h-[2px] bg-gold"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: hovered === item.id ? 1 : 0 }}
               style={{ transformOrigin: 'left', width: '100%' }}
@@ -108,12 +101,12 @@ export default function CollectionsPage() {
 
       {/* Bottom CTA */}
       <div className="max-w-7xl mx-auto mt-20 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="font-mono text-[10px] tracking-[0.3em] text-white/20 uppercase">
+        <p className="font-mono text-[10px] tracking-[0.3em] text-walnut/20 uppercase">
           {collections.reduce((s, c) => s + c.count, 0)}+ curated pieces — updated seasonally
         </p>
         <motion.button
           whileHover={{ scale: 1.02 }}
-          className="flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] uppercase text-luxury-teal border border-luxury-teal/30 px-7 py-3.5 hover:bg-luxury-teal/10 transition-colors duration-300"
+          className="flex items-center gap-3 font-mono text-[10px] tracking-[0.3em] uppercase text-gold border border-gold/30 rounded-full px-7 py-3.5 hover:bg-gold/10 transition-colors duration-300"
         >
           Request a Catalogue
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none">

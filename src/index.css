@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: #0d0a07;
-  --text-color: #F5F0E8;
+  --bg-color: #F8F4EE;
+  --text-color: #2C1A0E;
 }
 
 body {
@@ -12,39 +12,43 @@ body {
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
-  cursor: none; 
+  cursor: none;
 }
 
-/* Custom Selection */
 ::selection {
-  background: #008080;
-  color: #fff;
+  background: #C9A84C;
+  color: #2C1A0E;
 }
 
-/* Hide cursor on interactive elements as well */
 a, button, input, select, textarea, [role="button"] {
   cursor: none;
 }
 
 .glass-pill {
-  @apply bg-[#0d0a07]/90 border border-white/10 rounded-full;
+  background: rgba(248, 244, 238, 0.90);
+  border: 1px solid rgba(201, 168, 76, 0.20);
+  border-radius: 9999px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.glass-panel-dark {
-  @apply backdrop-blur-xl bg-white/5 border border-white/5;
+.glass-panel {
+  background: rgba(248, 244, 238, 0.70);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-.text-gradient-teal {
-  background: linear-gradient(to right, #00A3A3, #008080);
+.text-gradient-gold {
+  background: linear-gradient(to right, #C9A84C, #9B7A28);
   -webkit-background-clip: text;
   color: transparent;
 }
 
-/* Cursor glowing effects */
 .cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #008080;
+  width: 7px;
+  height: 7px;
+  background-color: #C9A84C;
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -56,10 +60,10 @@ a, button, input, select, textarea, [role="button"] {
 }
 
 .cursor-glow {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(0, 128, 128, 0.5);
-  background-color: rgba(0, 128, 128, 0.1);
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  background-color: rgba(201, 168, 76, 0.08);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -70,7 +74,6 @@ a, button, input, select, textarea, [role="button"] {
   transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s;
 }
 
-/* Hide scrollbar for cleaner cinematic look */
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;

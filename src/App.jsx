@@ -15,7 +15,6 @@ import SpacesPage from './components/SpacesPage'
 import ContactPage from './components/ContactPage'
 import Footer from './components/Footer'
 
-// Global glowing cursor component
 const CustomCursor = () => {
   const cursorDotRef = useRef(null);
   const cursorGlowRef = useRef(null);
@@ -23,16 +22,16 @@ const CustomCursor = () => {
   useEffect(() => {
     const moveCursor = (e) => {
       gsap.to(cursorDotRef.current, { x: e.clientX, y: e.clientY, duration: 0 });
-      gsap.to(cursorGlowRef.current, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
+      gsap.to(cursorGlowRef.current, { x: e.clientX, y: e.clientY, duration: 0.15, ease: 'power2.out' });
     };
 
     const handleHover = () => {
-      gsap.to(cursorGlowRef.current, { scale: 1.5, backgroundColor: 'rgba(0, 128, 128, 0.2)', duration: 0.3 });
+      gsap.to(cursorGlowRef.current, { scale: 1.6, backgroundColor: 'rgba(201,168,76,0.15)', duration: 0.3 });
       gsap.to(cursorDotRef.current, { scale: 0, duration: 0.2 });
     };
 
     const handleHoverOut = () => {
-      gsap.to(cursorGlowRef.current, { scale: 1, backgroundColor: 'rgba(0, 128, 128, 0.1)', duration: 0.3 });
+      gsap.to(cursorGlowRef.current, { scale: 1, backgroundColor: 'rgba(201,168,76,0.08)', duration: 0.3 });
       gsap.to(cursorDotRef.current, { scale: 1, duration: 0.2 });
     };
 
@@ -55,41 +54,28 @@ const CustomCursor = () => {
 
   return (
     <>
-      <div ref={cursorDotRef} className="cursor-dot hidden md:block"></div>
-      <div ref={cursorGlowRef} className="cursor-glow hidden md:block"></div>
+      <div ref={cursorDotRef} className="cursor-dot hidden md:block" />
+      <div ref={cursorGlowRef} className="cursor-glow hidden md:block" />
     </>
   );
 };
 
-// ScrollToTop component
 function ScrollToTop() {
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
   return null;
 }
 
-// Right side scroll progress indicator
 const ScrollProgress = () => {
   const { scrollYProgress } = useScroll();
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const scaleY = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 h-40 w-[2px] bg-white/10 z-[100] hidden lg:block rounded-full overflow-hidden">
-      <motion.div
-        className="w-full bg-luxury-teal origin-top"
-        style={{ scaleY, height: '100%' }}
-      />
+    <div className="fixed right-4 top-1/2 -translate-y-1/2 h-40 w-[2px] bg-walnut/10 z-[100] hidden lg:block rounded-full overflow-hidden">
+      <motion.div className="w-full bg-gold origin-top" style={{ scaleY, height: '100%' }} />
     </div>
   );
-}
+};
 
 function App() {
   return (
@@ -99,10 +85,10 @@ function App() {
         <ScrollProgress />
         <ScrollToTop />
         <Header />
-        
+
         <Routes>
           <Route path="/" element={
-            <main className="bg-luxury-dark">
+            <main className="bg-cream">
               <HeroCanvas />
               <HoverRevealSection />
               <AmenitiesSection />
@@ -110,11 +96,11 @@ function App() {
             </main>
           } />
           <Route path="/collections" element={<CollectionsPage />} />
-          <Route path="/spaces" element={<SpacesPage />} />
-          <Route path="/journal" element={<JournalPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/spaces"      element={<SpacesPage />} />
+          <Route path="/journal"     element={<JournalPage />} />
+          <Route path="/contact"     element={<ContactPage />} />
         </Routes>
-        
+
         <Footer />
       </Router>
     </ReactLenis>

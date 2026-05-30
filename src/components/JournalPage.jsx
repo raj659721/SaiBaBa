@@ -61,20 +61,20 @@ export default function JournalPage() {
   const rest = articles.filter(a => !a.featured);
 
   return (
-    <main className="min-h-screen bg-[#0d0a07] text-off-white pt-36 pb-32 px-6 md:px-12">
+    <main className="min-h-screen bg-cream text-walnut pt-36 pb-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
         <div className="mb-20">
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-            className="font-mono text-[10px] tracking-[0.45em] text-luxury-teal uppercase mb-5"
+            className="font-mono text-[10px] tracking-[0.45em] text-gold uppercase mb-5"
           >
             Design Editorial
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-serif leading-none text-off-white"
+            className="text-5xl md:text-7xl font-serif leading-none text-walnut"
           >
             The Journal
           </motion.h1>
@@ -85,7 +85,7 @@ export default function JournalPage() {
           initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}
           onMouseEnter={() => setHovered(featured.id)}
           onMouseLeave={() => setHovered(null)}
-          className="relative group grid grid-cols-1 lg:grid-cols-2 border border-white/[0.07] mb-px cursor-pointer overflow-hidden"
+          className="relative group grid grid-cols-1 lg:grid-cols-2 border border-walnut/[0.08] mb-px cursor-pointer overflow-hidden rounded-2xl shadow-[0_4px_30px_rgba(44,26,14,0.07)]"
         >
           <div className="relative h-72 lg:h-[520px] overflow-hidden">
             <motion.img
@@ -94,26 +94,25 @@ export default function JournalPage() {
               animate={{ scale: hovered === featured.id ? 1.04 : 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0d0a07]/60 lg:block hidden" />
           </div>
 
-          <div className="p-10 lg:p-14 flex flex-col justify-center bg-[#110d0a]">
+          <div className="p-10 lg:p-14 flex flex-col justify-center bg-cream-2">
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-luxury-teal border border-luxury-teal/30 px-2.5 py-1">
+              <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-gold border border-gold/30 px-2.5 py-1 bg-cream rounded-full">
                 {featured.tag}
               </span>
-              <span className="font-mono text-[9px] text-white/25">Featured</span>
+              <span className="font-mono text-[9px] text-walnut/30">Featured</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif text-off-white leading-snug mb-5">{featured.title}</h2>
-            <p className="text-white/50 font-light leading-relaxed mb-8">{featured.excerpt}</p>
-            <div className="flex items-center justify-between border-t border-white/[0.07] pt-6">
+            <h2 className="text-3xl md:text-4xl font-serif text-walnut leading-snug mb-5">{featured.title}</h2>
+            <p className="text-walnut-mid font-light leading-relaxed mb-8">{featured.excerpt}</p>
+            <div className="flex items-center justify-between border-t border-walnut/10 pt-6">
               <div>
-                <p className="font-mono text-[10px] text-white/40">{featured.author}</p>
-                <p className="font-mono text-[10px] text-white/25">{featured.date} · {featured.readTime} read</p>
+                <p className="font-mono text-[10px] text-walnut/50">{featured.author}</p>
+                <p className="font-mono text-[10px] text-walnut/30">{featured.date} · {featured.readTime} read</p>
               </div>
               <motion.div
                 className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] uppercase"
-                animate={{ color: hovered === featured.id ? '#008080' : 'rgba(255,255,255,0.3)' }}
+                animate={{ color: hovered === featured.id ? '#C9A84C' : 'rgba(44,26,14,0.3)' }}
                 transition={{ duration: 0.3 }}
               >
                 Read Article
@@ -127,9 +126,8 @@ export default function JournalPage() {
             </div>
           </div>
 
-          {/* Teal bottom line */}
           <motion.div
-            className="absolute bottom-0 left-0 h-[1px] bg-luxury-teal col-span-2"
+            className="absolute bottom-0 left-0 h-[2px] bg-gold col-span-2"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: hovered === featured.id ? 1 : 0 }}
             style={{ transformOrigin: 'left', width: '100%' }}
@@ -138,7 +136,7 @@ export default function JournalPage() {
         </motion.div>
 
         {/* Article grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-white/[0.07]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-walnut/[0.08] mt-px">
           {rest.map((article, i) => (
             <motion.div
               key={article.id}
@@ -147,7 +145,7 @@ export default function JournalPage() {
               transition={{ duration: 0.7, delay: 0.3 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               onMouseEnter={() => setHovered(article.id)}
               onMouseLeave={() => setHovered(null)}
-              className="relative group border-r border-b border-white/[0.07] cursor-pointer overflow-hidden"
+              className="relative group border-r border-b border-walnut/[0.08] cursor-pointer overflow-hidden bg-cream hover:bg-cream-2 transition-colors duration-400"
             >
               <div className="relative h-52 overflow-hidden">
                 <motion.img
@@ -156,21 +154,20 @@ export default function JournalPage() {
                   animate={{ scale: hovered === article.id ? 1.06 : 1 }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0a07] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/10 to-transparent" />
               </div>
 
               <div className="p-6">
-                <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-luxury-teal mb-3 block">{article.tag}</span>
-                <h3 className="font-serif text-lg text-off-white leading-snug mb-3">{article.title}</h3>
-                <p className="text-sm text-white/40 font-light leading-relaxed mb-5 line-clamp-2">{article.excerpt}</p>
+                <span className="font-mono text-[9px] tracking-[0.25em] uppercase text-gold mb-3 block">{article.tag}</span>
+                <h3 className="font-serif text-lg text-walnut leading-snug mb-3">{article.title}</h3>
+                <p className="text-sm text-walnut-mid font-light leading-relaxed mb-5 line-clamp-2">{article.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <p className="font-mono text-[9px] text-white/25">{article.date} · {article.readTime}</p>
-                  <motion.svg
-                    width="10" height="10" viewBox="0 0 10 10" fill="none"
+                  <p className="font-mono text-[9px] text-walnut/25">{article.date} · {article.readTime}</p>
+                  <motion.svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                     animate={{
                       x: hovered === article.id ? 2 : 0,
                       y: hovered === article.id ? -2 : 0,
-                      color: hovered === article.id ? '#008080' : 'rgba(255,255,255,0.25)',
+                      color: hovered === article.id ? '#C9A84C' : 'rgba(44,26,14,0.25)',
                     }}
                     transition={{ duration: 0.3 }}
                   >
@@ -180,7 +177,7 @@ export default function JournalPage() {
               </div>
 
               <motion.div
-                className="absolute bottom-0 left-0 h-[1px] bg-luxury-teal"
+                className="absolute bottom-0 left-0 h-[2px] bg-gold"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: hovered === article.id ? 1 : 0 }}
                 style={{ transformOrigin: 'left', width: '100%' }}
