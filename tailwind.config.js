@@ -9,11 +9,13 @@ export default {
         mono: ['Space Mono', 'monospace'],
       },
       colors: {
-        'luxury-dark': '#050505',
+        'luxury-dark': '#0d0a07',
+        'luxury-dark-2': '#130f0b',
         'luxury-teal': '#008080',
         'luxury-teal-light': '#00A3A3',
-        'atelier-gold': '#d4af37',
-        'off-white': '#FEFEFE',
+        'atelier-gold': '#c9a84c',
+        'off-white': '#F5F0E8',
+        'warm-white': '#EDE8DF',
       },
       animation: {
         'marquee': 'marquee 25s linear infinite',

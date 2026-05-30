@@ -9,6 +9,8 @@ import HeroCanvas from './components/HeroCanvas'
 import BentoGrid from './components/BentoGrid'
 import AmenitiesSection from './components/AmenitiesSection'
 import HoverRevealSection from './components/HoverRevealSection'
+import CollectionsPage from './components/CollectionsPage'
+import JournalPage from './components/JournalPage'
 import SpacesPage from './components/SpacesPage'
 import ContactPage from './components/ContactPage'
 import Footer from './components/Footer'
@@ -107,17 +109,9 @@ function App() {
               <BentoGrid />
             </main>
           } />
-          <Route path="/collections" element={
-            <main className="pt-32 min-h-screen px-4 md:px-12 flex items-center justify-center bg-luxury-dark">
-              <h1 className="text-4xl md:text-6xl font-serif text-center text-off-white">Bespoke Furnishings</h1>
-            </main>
-          } />
+          <Route path="/collections" element={<CollectionsPage />} />
           <Route path="/spaces" element={<SpacesPage />} />
-          <Route path="/journal" element={
-            <main className="pt-32 min-h-screen px-4 md:px-12 flex items-center justify-center bg-luxury-dark">
-              <h1 className="text-4xl md:text-6xl font-serif text-center text-off-white">Design Editorial</h1>
-            </main>
-          } />
+          <Route path="/journal" element={<JournalPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         

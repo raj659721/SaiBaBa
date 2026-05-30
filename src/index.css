@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: #050505;
-  --text-color: #fefefe;
+  --bg-color: #0d0a07;
+  --text-color: #F5F0E8;
 }
 
 body {
@@ -27,7 +27,7 @@ a, button, input, select, textarea, [role="button"] {
 }
 
 .glass-pill {
-  @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-full;
+  @apply bg-[#0d0a07]/90 border border-white/10 rounded-full;
 }
 
 .glass-panel-dark {
