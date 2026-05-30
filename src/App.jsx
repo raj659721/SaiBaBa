@@ -86,26 +86,22 @@ function App() {
         <ScrollToTop />
         <Header />
 
-        <div className="relative z-10">
-          <Routes>
-            <Route path="/" element={
-              <main className="bg-smoke">
-                <HeroCanvas />
-                <HoverRevealSection />
-                <AmenitiesSection />
-                <BentoGrid />
-              </main>
-            } />
-            <Route path="/collections" element={<CollectionsPage />} />
-            <Route path="/spaces"      element={<SpacesPage />} />
-            <Route path="/journal"     element={<JournalPage />} />
-            <Route path="/contact"     element={<ContactPage />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={
+            <main className="bg-smoke">
+              <HeroCanvas />
+              <HoverRevealSection />
+              <AmenitiesSection />
+              <BentoGrid />
+            </main>
+          } />
+          <Route path="/collections" element={<CollectionsPage />} />
+          <Route path="/spaces"      element={<SpacesPage />} />
+          <Route path="/journal"     element={<JournalPage />} />
+          <Route path="/contact"     element={<ContactPage />} />
+        </Routes>
 
-        <div className="relative z-0">
-          <Footer />
-        </div>
+        <Footer />
       </Router>
     </ReactLenis>
   )
