@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #050505;
+  --text-color: #fefefe;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  cursor: none; 
+}
+
+/* Custom Selection */
+::selection {
+  background: #008080;
+  color: #fff;
+}
+
+/* Hide cursor on interactive elements as well */
+a, button, input, select, textarea, [role="button"] {
+  cursor: none;
+}
+
+.glass-pill {
+  @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-full;
+}
+
+.glass-panel-dark {
+  @apply backdrop-blur-xl bg-white/5 border border-white/5;
+}
+
+.text-gradient-teal {
+  background: linear-gradient(to right, #00A3A3, #008080);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Cursor glowing effects */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #008080;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-glow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 128, 128, 0.5);
+  background-color: rgba(0, 128, 128, 0.1);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s;
+}
+
+/* Hide scrollbar for cleaner cinematic look */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.marquee-container {
+  display: flex;
+  width: 200%;
+}
