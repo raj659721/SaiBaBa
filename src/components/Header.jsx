@@ -38,8 +38,8 @@ const Header = () => {
         <div
           className={`pointer-events-auto flex items-center gap-6 md:gap-10 transition-all duration-500 rounded-full px-5 md:px-7 py-3 ${
             scrolled
-              ? 'bg-cream/95 shadow-[0_8px_40px_rgba(44,26,14,0.13)] border border-gold/25 backdrop-blur-2xl'
-              : 'bg-cream/80 shadow-[0_4px_24px_rgba(44,26,14,0.09)] border border-gold/15 backdrop-blur-xl'
+              ? 'bg-cream/55 shadow-[0_8px_40px_rgba(44,26,14,0.08)] border border-gold/20 backdrop-blur-2xl'
+              : 'bg-cream/30 shadow-[0_4px_24px_rgba(44,26,14,0.05)] border border-gold/15 backdrop-blur-xl'
           }`}
         >
           {/* Logo */}
