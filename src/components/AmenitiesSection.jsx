@@ -34,6 +34,22 @@ const AmenitiesSection = () => {
 
   return (
     <section className="bg-cream text-walnut py-32 px-4 md:px-12 min-h-screen flex items-center relative overflow-hidden">
+      {/* Luxury ornamental — bottom left large medallion */}
+      <svg
+        className="absolute left-[-100px] bottom-[-100px] w-[500px] h-[500px] pointer-events-none select-none"
+        viewBox="0 0 400 400" fill="none"
+        style={{ opacity: 0.04 }}
+      >
+        <path d="M200 20L380 200L200 380L20 200Z" stroke="#2C1A0E" strokeWidth="1"/>
+        <path d="M200 70L330 200L200 330L70 200Z" stroke="#C9A84C" strokeWidth="0.7"/>
+        <path d="M200 120L280 200L200 280L120 200Z" stroke="#2C1A0E" strokeWidth="0.5"/>
+        <line x1="200" y1="20" x2="200" y2="380" stroke="#2C1A0E" strokeWidth="0.3"/>
+        <line x1="20" y1="200" x2="380" y2="200" stroke="#2C1A0E" strokeWidth="0.3"/>
+        <circle cx="200" cy="20" r="3" fill="#C9A84C"/>
+        <circle cx="380" cy="200" r="3" fill="#C9A84C"/>
+        <circle cx="200" cy="380" r="3" fill="#C9A84C"/>
+        <circle cx="20" cy="200" r="3" fill="#C9A84C"/>
+      </svg>
       {/* Warm ambient glow */}
       <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/25 to-transparent" />

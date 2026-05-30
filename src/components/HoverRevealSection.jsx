@@ -27,6 +27,27 @@ export default function HoverRevealSection() {
       className="relative bg-cream-2 overflow-hidden py-32 px-6 md:px-16"
       onMouseMove={(e) => { rawX.set(e.clientX + 24); rawY.set(e.clientY - 140); }}
     >
+      {/* Luxury ornamental medallion */}
+      <svg
+        className="absolute right-[-80px] top-1/2 -translate-y-1/2 w-[560px] h-[560px] pointer-events-none select-none"
+        viewBox="0 0 400 400" fill="none"
+        style={{ opacity: 0.045 }}
+      >
+        <path d="M200 20L380 200L200 380L20 200Z" stroke="#2C1A0E" strokeWidth="1.2"/>
+        <path d="M200 60L340 200L200 340L60 200Z" stroke="#2C1A0E" strokeWidth="0.6"/>
+        <path d="M200 100L300 200L200 300L100 200Z" stroke="#C9A84C" strokeWidth="0.8"/>
+        <path d="M200 140L260 200L200 260L140 200Z" stroke="#2C1A0E" strokeWidth="0.5"/>
+        <line x1="200" y1="20" x2="200" y2="380" stroke="#2C1A0E" strokeWidth="0.3"/>
+        <line x1="20" y1="200" x2="380" y2="200" stroke="#2C1A0E" strokeWidth="0.3"/>
+        <line x1="60" y1="60" x2="340" y2="340" stroke="#2C1A0E" strokeWidth="0.25"/>
+        <line x1="340" y1="60" x2="60" y2="340" stroke="#2C1A0E" strokeWidth="0.25"/>
+        <circle cx="200" cy="20" r="3.5" fill="#C9A84C"/>
+        <circle cx="380" cy="200" r="3.5" fill="#C9A84C"/>
+        <circle cx="200" cy="380" r="3.5" fill="#C9A84C"/>
+        <circle cx="20" cy="200" r="3.5" fill="#C9A84C"/>
+        <circle cx="200" cy="200" r="6" stroke="#C9A84C" strokeWidth="0.8" fill="none"/>
+        <circle cx="200" cy="200" r="2" fill="#C9A84C"/>
+      </svg>
       {/* Subtle ambient */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/30 to-transparent" />

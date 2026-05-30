@@ -15,6 +15,23 @@ body {
   cursor: none;
 }
 
+/* ── Luxury diamond-lattice texture ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M45 5L85 45L45 85L5 45Z' fill='none' stroke='%232C1A0E' stroke-width='0.45'/%3E%3Ccircle cx='45' cy='5' r='1.2' fill='%232C1A0E'/%3E%3Ccircle cx='85' cy='45' r='1.2' fill='%232C1A0E'/%3E%3Ccircle cx='45' cy='85' r='1.2' fill='%232C1A0E'/%3E%3Ccircle cx='5' cy='45' r='1.2' fill='%232C1A0E'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All page content sits above the texture */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 ::selection {
   background: #C9A84C;
   color: #2C1A0E;
@@ -43,6 +60,25 @@ a, button, input, select, textarea, [role="button"] {
   background: linear-gradient(to right, #C9A84C, #9B7A28);
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* ── Luxury section divider ── */
+.luxury-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+.luxury-divider::before,
+.luxury-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.35));
+}
+.luxury-divider::after {
+  background: linear-gradient(to left, transparent, rgba(201,168,76,0.35));
 }
 
 .cursor-dot {

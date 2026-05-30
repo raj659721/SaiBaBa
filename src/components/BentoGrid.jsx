@@ -8,6 +8,21 @@ const BentoGrid = () => {
 
   return (
     <section ref={sectionRef} className="relative bg-cream-2 py-32 px-4 md:px-12 overflow-hidden">
+      {/* Luxury corner flourish — top left */}
+      <svg
+        className="absolute left-0 top-0 w-[320px] h-[320px] pointer-events-none select-none"
+        viewBox="0 0 200 200" fill="none"
+        style={{ opacity: 0.05 }}
+      >
+        <path d="M0 100L100 0" stroke="#2C1A0E" strokeWidth="0.8"/>
+        <path d="M0 160L160 0" stroke="#2C1A0E" strokeWidth="0.5"/>
+        <path d="M0 40L40 0" stroke="#C9A84C" strokeWidth="0.8"/>
+        <path d="M20 0 Q0 0 0 20" stroke="#C9A84C" strokeWidth="1.2" fill="none"/>
+        <path d="M50 0 Q0 0 0 50" stroke="#2C1A0E" strokeWidth="0.5" fill="none"/>
+        <path d="M90 0 Q0 0 0 90" stroke="#2C1A0E" strokeWidth="0.4" fill="none"/>
+        <circle cx="20" cy="0" r="2" fill="#C9A84C"/>
+        <circle cx="0" cy="20" r="2" fill="#C9A84C"/>
+      </svg>
       {/* Warm ambient */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
