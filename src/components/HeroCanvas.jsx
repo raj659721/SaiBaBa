@@ -76,14 +76,14 @@ const HeroCanvas = () => {
   }, [loaded, drawFrame]);
 
   return (
-    <section ref={sectionRef} className="relative h-screen w-full bg-walnut overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen w-full bg-jet overflow-hidden">
 
       {!loaded && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-50 gap-6 bg-walnut">
-          <div className="w-48 h-[1px] bg-cream/10 relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 bg-gold transition-all duration-300" style={{ width: `${progress}%` }} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-50 gap-6 bg-jet">
+          <div className="w-48 h-[1px] bg-smoke/10 relative overflow-hidden">
+            <div className="absolute inset-y-0 left-0 bg-smoke transition-all duration-300" style={{ width: `${progress}%` }} />
           </div>
-          <p className="font-mono text-xs tracking-[0.3em] text-cream/40 uppercase">
+          <p className="font-mono text-xs tracking-[0.3em] text-smoke/35 uppercase">
             Loading {progress}%
           </p>
         </div>
@@ -91,8 +91,8 @@ const HeroCanvas = () => {
 
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" />
 
-      {/* Overlay — top darkens for text contrast, bottom fades into cream page */}
-      <div className="absolute inset-0 bg-gradient-to-b from-walnut/65 via-transparent to-cream z-10 pointer-events-none" />
+      {/* Overlay — top darkens for text contrast only */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-transparent z-10 pointer-events-none" />
 
       {/* Text layer */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4 pointer-events-none text-center">
@@ -117,9 +117,9 @@ const HeroCanvas = () => {
 
       {/* Scroll hint */}
       <div ref={scrollHintRef} className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30 pointer-events-none">
-        <span className="font-mono text-[10px] tracking-[0.4em] text-cream/35 uppercase">Begin Journey</span>
+        <span className="font-mono text-[10px] tracking-[0.4em] text-smoke/40 uppercase">Begin Journey</span>
         <div className="w-[1px] h-16 overflow-hidden">
-          <div className="w-full h-full bg-gradient-to-b from-gold to-transparent animate-bounce" />
+          <div className="w-full h-full bg-gradient-to-b from-smoke/50 to-transparent animate-bounce" />
         </div>
       </div>
     </section>
