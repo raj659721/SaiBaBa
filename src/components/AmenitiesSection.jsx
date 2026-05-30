@@ -4,26 +4,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 const amenitiesList = [
   {
     id: '01',
-    title: 'Bespoke Curation',
-    description: 'Every piece is hand-selected from the finest Italian ateliers, ensuring absolute exclusivity.',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1000&q=80&fit=crop'
+    title: 'Handpicked Fabrics',
+    description: 'Every fabric is personally selected from trusted weavers and mills across India — from Varanasi silk to Rajasthani block prints and Egyptian cotton.',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1000&q=80&fit=crop'
   },
   {
     id: '02',
-    title: 'Architectural Lighting',
-    description: 'Cinematic illumination designed to interact with spatial shadows and material textures.',
-    image: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1000&q=80&fit=crop'
+    title: 'Custom Tailoring',
+    description: 'We measure your windows, sofas and beds precisely — then craft each piece to fit perfectly. No standard sizes, no compromises.',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1000&q=80&fit=crop'
   },
   {
     id: '03',
-    title: 'Material Index',
-    description: 'Access to rare Turkish marbles, sustainable exotic woods, and full-grain aniline leathers.',
-    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1000&q=80&fit=crop'
+    title: 'Premium Textile Range',
+    description: 'Choose from silk, velvet, Belgian linen, Egyptian cotton, handloom and more. Our collection spans over 200 fabrics in every colour and texture.',
+    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1000&q=80&fit=crop'
   },
   {
     id: '04',
-    title: 'White Glove Delivery',
-    description: 'Seamless global installation handled by our specialized logistics and design teams.',
+    title: 'Home Delivery & Installation',
+    description: 'Free delivery across India with professional installation by our trained team. We handle everything — from measurement to final fitting.',
     image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=1000&q=80&fit=crop'
   }
 ];
@@ -34,7 +34,6 @@ const AmenitiesSection = () => {
 
   return (
     <section className="bg-smoke text-jet py-32 px-4 md:px-12 min-h-screen flex items-center relative overflow-hidden">
-      {/* Ornamental medallion */}
       <svg
         className="absolute left-[-100px] bottom-[-100px] w-[500px] h-[500px] pointer-events-none select-none"
         viewBox="0 0 400 400" fill="none"
@@ -55,11 +54,10 @@ const AmenitiesSection = () => {
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
 
-        {/* Left Side */}
         <div className="space-y-12">
           <div>
-            <h2 className="text-sm font-mono tracking-[0.3em] text-jet-mid uppercase mb-4">The Experience</h2>
-            <h3 className="text-4xl md:text-6xl font-serif text-jet leading-tight">Uncompromising<br/>Standards</h3>
+            <h2 className="text-sm font-mono tracking-[0.3em] text-jet-mid uppercase mb-4">Why Choose Us</h2>
+            <h3 className="text-4xl md:text-6xl font-serif text-jet leading-tight">The Saibaba<br/>Difference</h3>
           </div>
 
           <div className="space-y-2 border-l-2 border-smoke-3 pl-6">
@@ -105,7 +103,6 @@ const AmenitiesSection = () => {
           </div>
         </div>
 
-        {/* Right Side */}
         <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(12,12,12,0.10)] bg-smoke-3 ring-1 ring-jet/8">
           <AnimatePresence mode="wait">
             <motion.img
@@ -119,7 +116,6 @@ const AmenitiesSection = () => {
               className="absolute inset-0 w-full h-full object-cover"
             />
           </AnimatePresence>
-          {/* Bottom label */}
           <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-jet/70 via-jet/20 to-transparent p-8 pointer-events-none">
             <p className="font-mono text-[9px] tracking-[0.3em] text-silver-light uppercase mb-1">{activeAmenity.id}</p>
             <p className="font-serif text-xl text-smoke">{activeAmenity.title}</p>

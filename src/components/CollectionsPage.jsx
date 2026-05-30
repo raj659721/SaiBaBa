@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const collections = [
-  { id: 1, name: 'Curtains',    tag: 'Window Dressing', count: 24, image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&fit=crop',   desc: 'Handcrafted floor-to-ceiling drapes in silk, linen and velvet.' },
-  { id: 2, name: 'Sofa Covers', tag: 'Upholstery',      count: 18, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80&fit=crop',   desc: 'Premium fitted covers in full-grain leather and woven fabric.' },
-  { id: 3, name: 'Bedsheets',   tag: 'Bedroom Linen',   count: 36, image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80&fit=crop',   desc: '400-thread-count Egyptian cotton and bamboo weave collections.' },
-  { id: 4, name: 'Cushions',    tag: 'Accent Pieces',   count: 42, image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80&fit=crop',   desc: 'Hand-embroidered and block-printed statement cushions.' },
-  { id: 5, name: 'Wallpapers',  tag: 'Wall Coverings',  count: 29, image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80&fit=crop',   desc: 'Artisan wallpapers in grasscloth, foil and digital print.' },
-  { id: 6, name: 'Carpets',     tag: 'Floor Textiles',  count: 15, image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80&fit=crop',   desc: 'Hand-knotted Persian, Moroccan and contemporary rugs.' },
-  { id: 7, name: 'Home Decor',  tag: 'Curated Objects', count: 58, image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80&fit=crop',   desc: 'Sculptural vases, candle holders and curated accent objects.' },
-  { id: 8, name: 'Handloom',    tag: 'Artisan Craft',   count: 21, image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80&fit=crop',   desc: 'Handloom textiles woven by master craftsmen across India.' },
+  { id: 1, name: 'Curtains',    tag: 'Window Dressing', count: 24, image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80&fit=crop', desc: 'Floor-to-ceiling drapes custom-stitched in silk, linen and velvet.' },
+  { id: 2, name: 'Sofa Covers', tag: 'Upholstery',      count: 18, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80&fit=crop', desc: 'Stretch-fit and tailored sofa covers in cotton blends and woven fabric.' },
+  { id: 3, name: 'Bedsheets',   tag: 'Bedroom Linen',   count: 36, image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=800&q=80&fit=crop', desc: 'Egyptian cotton and handloom bedsheets — 400 thread count luxury.' },
+  { id: 4, name: 'Cushions',    tag: 'Accent Pieces',   count: 42, image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80&fit=crop', desc: 'Hand-embroidered and block-printed statement cushions by Indian artisans.' },
+  { id: 5, name: 'Wallpapers',  tag: 'Wall Coverings',  count: 29, image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&q=80&fit=crop', desc: 'Textured and printed wallpapers to transform any room instantly.' },
+  { id: 6, name: 'Carpets',     tag: 'Floor Textiles',  count: 15, image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80&fit=crop', desc: 'Handwoven dhurries, Persian-style and contemporary floor rugs.' },
+  { id: 7, name: 'Home Decor',  tag: 'Curated Objects', count: 58, image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=80&fit=crop', desc: 'Vases, candle stands, trays and curated decorative accents.' },
+  { id: 8, name: 'Handloom',    tag: 'Artisan Craft',   count: 21, image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80&fit=crop', desc: 'Pure handloom textiles woven by master craftsmen across India.' },
 ];
 
 export default function CollectionsPage() {

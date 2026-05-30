@@ -4,31 +4,31 @@ import { motion } from 'framer-motion';
 const articles = [
   {
     id: 1,
-    tag: 'Design Philosophy',
+    tag: 'Styling Guide',
     title: 'The Art of Layered Textiles in Modern Interiors',
-    excerpt: 'How the careful stacking of fabrics — from jute underlays to silk throws — creates depth, warmth and a sense of lived-in luxury.',
-    author: 'Elena Rossi',
+    excerpt: 'How the careful combination of curtains, cushions and throws — layered thoughtfully — creates depth, warmth and a sense of curated luxury in any room.',
+    author: 'Saibaba Design Studio',
     date: 'May 2026',
     readTime: '6 min',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&q=80&fit=crop',
     featured: true,
   },
   {
     id: 2,
-    tag: 'Material Guide',
-    title: 'Turkish Marble vs. Italian Travertine',
-    excerpt: "A designer's guide to choosing the right stone for bathrooms, kitchens and statement floors.",
-    author: 'Marcus Chen',
+    tag: 'Fabric Guide',
+    title: 'Silk vs Linen vs Velvet: Choosing the Right Curtain Fabric',
+    excerpt: 'A practical guide to the three most popular curtain fabrics — their look, feel, light control and how to choose the right one for each room.',
+    author: 'Saibaba Design Studio',
     date: 'April 2026',
     readTime: '4 min',
-    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=700&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=80&fit=crop',
   },
   {
     id: 3,
     tag: 'Trend Report',
-    title: 'Warm Neutrals Are Replacing Cold Minimalism',
-    excerpt: 'Cream, camel and terracotta are taking over from grey and white as the preferred palette in luxury homes.',
-    author: 'Studio Saibaba',
+    title: 'Warm Neutrals Are the New Luxury',
+    excerpt: 'Cream, camel and terracotta are taking over from cold grey — and handloom textures are leading this shift in Indian home decor.',
+    author: 'Saibaba Design Studio',
     date: 'March 2026',
     readTime: '5 min',
     image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=700&q=80&fit=crop',
@@ -38,17 +38,17 @@ const articles = [
     tag: 'Craft Spotlight',
     title: 'Inside the Handloom Ateliers of Varanasi',
     excerpt: 'We visit the weavers behind our most sought-after handloom collection — three generations of craft on the banks of the Ganges.',
-    author: 'Priya Sharma',
+    author: 'Saibaba Design Studio',
     date: 'February 2026',
     readTime: '8 min',
     image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=80&fit=crop',
   },
   {
     id: 5,
-    tag: 'Room Reveal',
-    title: 'A Mumbai Penthouse Transformed in 90 Days',
-    excerpt: 'Full documentation of a 4,200 sq ft penthouse transformation — from concept boards to final reveal.',
-    author: 'Elena Rossi',
+    tag: 'Home Transformation',
+    title: 'A Nashik Home Transformed With New Curtains & Covers',
+    excerpt: 'Full documentation of a living room and bedroom transformation using our custom curtains, sofa covers and handloom bedsheets.',
+    author: 'Saibaba Design Studio',
     date: 'January 2026',
     readTime: '7 min',
     image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=700&q=80&fit=crop',
@@ -64,13 +64,12 @@ export default function JournalPage() {
     <main className="min-h-screen bg-smoke text-jet pt-36 pb-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
 
-        {/* Header */}
         <div className="mb-20">
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
             className="font-mono text-[10px] tracking-[0.45em] text-jet-mid uppercase mb-5"
           >
-            Design Editorial
+            Design & Decor Stories
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.1 }}
@@ -80,7 +79,6 @@ export default function JournalPage() {
           </motion.h1>
         </div>
 
-        {/* Featured article */}
         <motion.div
           initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}
           onMouseEnter={() => setHovered(featured.id)}
@@ -135,7 +133,6 @@ export default function JournalPage() {
           />
         </motion.div>
 
-        {/* Article grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-jet/[0.08] mt-px">
           {rest.map((article, i) => (
             <motion.div

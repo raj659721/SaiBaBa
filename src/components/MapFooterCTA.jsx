@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const MapFooterCTA = () => {
   return (
@@ -9,27 +8,30 @@ const MapFooterCTA = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
 
-          {/* Contact Details & CTA */}
           <div className="space-y-10">
             <div>
               <p className="font-mono text-xs tracking-[0.3em] text-silver uppercase mb-4">Visit Us</p>
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight text-smoke">Experience Luxury<br/>In Person</h2>
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight text-smoke">See It In Person<br/>At Our Showroom</h2>
             </div>
 
             <div className="space-y-6 text-smoke/60 font-light">
               <div>
-                <h4 className="font-mono text-xs uppercase tracking-widest text-smoke/25 mb-2">Flagship Store</h4>
-                <p>123 Decor Avenue, Premium Block<br/>Mumbai, MH 400001</p>
+                <h4 className="font-mono text-xs uppercase tracking-widest text-smoke/25 mb-2">Showroom</h4>
+                <p>Saibaba Home Decor &amp; Handloom<br/>Nashik, Maharashtra, India</p>
+              </div>
+              <div>
+                <h4 className="font-mono text-xs uppercase tracking-widest text-smoke/25 mb-2">Hours</h4>
+                <p>Mon – Sat: 10:00 AM – 8:00 PM<br/>Sunday: 11:00 AM – 6:00 PM</p>
               </div>
               <div>
                 <h4 className="font-mono text-xs uppercase tracking-widest text-smoke/25 mb-2">Contact</h4>
-                <p>Email: bespoke@saibabadecor.com<br/>Phone: +91 98765 43210</p>
+                <p>Email: info@saibabadecor.com<br/>Phone: +91 99999 99999</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919999999999"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#25D366] text-white px-8 py-4 rounded-full font-mono text-xs tracking-widest uppercase hover:bg-smoke hover:text-jet transition-colors flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(37,211,102,0.25)]"
@@ -40,7 +42,7 @@ const MapFooterCTA = () => {
                 WhatsApp Us
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+919999999999"
                 className="border border-smoke/30 text-smoke px-8 py-4 rounded-full font-mono text-xs tracking-widest uppercase hover:bg-smoke hover:text-jet transition-colors text-center"
               >
                 Call Now
@@ -48,17 +50,16 @@ const MapFooterCTA = () => {
             </div>
           </div>
 
-          {/* Map Embed */}
           <div className="w-full h-80 lg:h-96 rounded-3xl overflow-hidden border border-smoke/8 relative filter grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-700">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12093.844358872596!2d-74.0044533!3d40.73061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25990263f92ad%3A0xc00f1245842c1613!2sGreenwich%20Village%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1714529340000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.0865420317964!2d73.796612574689!3d20.046817520780195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeb8f68f67a29%3A0x7e6933b6e8f9def0!2sSaibaba%20Home%20Decor%20And%20Handloom!5e0!3m2!1sen!2sin!4v1780145475139!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Location Map"
+              title="Saibaba Home Decor Location – Nashik"
             />
             <div className="absolute inset-0 pointer-events-none border border-smoke/5 rounded-3xl" />
           </div>
@@ -66,7 +67,7 @@ const MapFooterCTA = () => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-smoke/5 font-mono text-xs text-smoke/25 uppercase tracking-widest">
-          <p>&copy; {new Date().getFullYear()} Sai Baba Home Decor. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Saibaba Home Decor &amp; Handloom, Nashik. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-smoke transition-colors">Privacy</a>
             <a href="#" className="hover:text-smoke transition-colors">Terms</a>

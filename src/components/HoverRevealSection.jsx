@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 
 const categories = [
-  { name: 'Curtains',    count: '24', tag: 'Window Dressing', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80&fit=crop' },
+  { name: 'Curtains',    count: '24', tag: 'Window Dressing', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80&fit=crop' },
   { name: 'Sofa Covers', count: '18', tag: 'Upholstery',      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&fit=crop' },
-  { name: 'Bedsheets',   count: '36', tag: 'Bedroom Linen',   image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80&fit=crop' },
+  { name: 'Bedsheets',   count: '36', tag: 'Bedroom Linen',   image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=600&q=80&fit=crop' },
   { name: 'Cushions',    count: '42', tag: 'Accent Pieces',   image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&fit=crop' },
   { name: 'Wallpapers',  count: '29', tag: 'Wall Coverings',  image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&q=80&fit=crop' },
   { name: 'Carpets',     count: '15', tag: 'Floor Textiles',  image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80&fit=crop' },
