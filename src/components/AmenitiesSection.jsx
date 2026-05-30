@@ -6,25 +6,25 @@ const amenitiesList = [
     id: '01',
     title: 'Bespoke Curation',
     description: 'Every piece is hand-selected from the finest Italian ateliers, ensuring absolute exclusivity.',
-    image: 'https://images.unsplash.com/photo-1618220179428-22790b46a013?auto=format&fit=crop&q=80&w=1000'
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1000&q=80&fit=crop'
   },
   {
     id: '02',
     title: 'Architectural Lighting',
     description: 'Cinematic illumination designed to interact with spatial shadows and material textures.',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1000'
+    image: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1000&q=80&fit=crop'
   },
   {
     id: '03',
     title: 'Material Index',
     description: 'Access to rare Turkish marbles, sustainable exotic woods, and full-grain aniline leathers.',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1000'
+    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1000&q=80&fit=crop'
   },
   {
     id: '04',
     title: 'White Glove Delivery',
     description: 'Seamless global installation handled by our specialized logistics and design teams.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000'
+    image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=1000&q=80&fit=crop'
   }
 ];
 
