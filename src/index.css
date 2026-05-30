@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --bg-color: #F8F4EE;
+  --bg-color: #EAE4DA;
   --text-color: #2C1A0E;
 }
 
@@ -25,15 +25,15 @@ a, button, input, select, textarea, [role="button"] {
 }
 
 .glass-pill {
-  background: rgba(248, 244, 238, 0.90);
-  border: 1px solid rgba(201, 168, 76, 0.20);
+  background: rgba(234, 228, 218, 0.92);
+  border: 1px solid rgba(201, 168, 76, 0.22);
   border-radius: 9999px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
 .glass-panel {
-  background: rgba(248, 244, 238, 0.70);
+  background: rgba(234, 228, 218, 0.75);
   border: 1px solid rgba(201, 168, 76, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
