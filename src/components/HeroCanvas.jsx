@@ -109,22 +109,6 @@ const HeroCanvas = () => {
       {/* Full-Screen Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" />
 
-      {/* Subtle Marquee Overlay blending with the video */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-[200vw] flex overflow-hidden z-[5] pointer-events-none mix-blend-overlay opacity-30">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {["SAIBABA HOME DECORE", "✦", "SAIBABA HOME DECORE", "✦"].map((item, i) => (
-            <span key={i} className="text-[clamp(4rem,15vw,12rem)] font-serif font-bold text-white mx-8 shrink-0 tracking-tighter">
-              {item}
-            </span>
-          ))}
-          {["SAIBABA HOME DECORE", "✦", "SAIBABA HOME DECORE", "✦"].map((item, i) => (
-            <span key={`dup-${i}`} className="text-[clamp(4rem,15vw,12rem)] font-serif font-bold text-white mx-8 shrink-0 tracking-tighter">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* Cinematic gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-luxury-dark/60 via-transparent to-luxury-dark z-10 pointer-events-none" />
 
