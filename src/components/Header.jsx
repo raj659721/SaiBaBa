@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const WHATSAPP_NUMBER = '919511285634';
+const WHATSAPP_MESSAGE = encodeURIComponent('Hi! I visited your website and would like to know more about your curtains, sofa covers and home decor products.');
+
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -34,7 +37,7 @@ const Header = () => {
         transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 transition-all duration-500 ${
           scrolled
-            ? 'bg-jet/90 backdrop-blur-xl border-b border-smoke/8'
+            ? 'bg-jet/92 backdrop-blur-xl border-b border-smoke/8 shadow-[0_2px_20px_rgba(12,12,12,0.15)]'
             : 'bg-transparent'
         }`}
       >
@@ -43,9 +46,14 @@ const Header = () => {
           <div className="w-4 h-4 border border-smoke/60 rotate-45 flex items-center justify-center group-hover:border-smoke transition-colors duration-300">
             <div className="w-1 h-1 bg-smoke" />
           </div>
-          <span className="text-[11px] font-serif tracking-[0.32em] text-smoke uppercase group-hover:text-smoke/70 transition-colors duration-300 hidden sm:block">
-            Saibaba
-          </span>
+          <div className="hidden sm:block">
+            <span className="text-[12px] font-serif tracking-[0.28em] text-smoke uppercase group-hover:text-smoke/80 transition-colors duration-300 leading-none">
+              Saibaba
+            </span>
+            <span className="block text-[8px] font-mono tracking-[0.22em] text-smoke/35 uppercase leading-none mt-0.5">
+              Home Decor
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Nav */}
@@ -74,10 +82,24 @@ const Header = () => {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {/* WhatsApp CTA — desktop */}
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-2 text-[10px] tracking-[0.18em] uppercase font-mono bg-[#25D366] text-white px-4 py-2 rounded-full hover:bg-[#20bc5a] transition-colors duration-300 group shadow-[0_0_12px_rgba(37,211,102,0.30)]"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            WhatsApp
+          </a>
+
+          {/* Inquire — desktop */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="hidden md:flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase font-mono text-smoke/50 hover:text-smoke transition-colors duration-300 group"
+            className="hidden md:flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase font-mono text-smoke/45 hover:text-smoke transition-colors duration-300 group"
           >
             Inquire
             <svg width="8" height="8" viewBox="0 0 10 10" fill="none" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
@@ -98,7 +120,7 @@ const Header = () => {
         </div>
       </motion.header>
 
-      {/* Mobile menu — full-width dropdown */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -128,16 +150,51 @@ const Header = () => {
                   </Link>
                 </motion.div>
               ))}
-              <button
-                onClick={() => { setIsModalOpen(true); setMenuOpen(false); }}
-                className="mt-4 text-left text-[10px] tracking-[0.3em] uppercase font-mono text-smoke/40 hover:text-smoke transition-colors duration-300"
-              >
-                Request Consultation →
-              </button>
+
+              <div className="mt-5 flex flex-col gap-3">
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-3.5 rounded-full font-mono text-xs tracking-widest uppercase"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  Chat on WhatsApp
+                </a>
+                <button
+                  onClick={() => { setIsModalOpen(true); setMenuOpen(false); }}
+                  className="text-center text-[10px] tracking-[0.3em] uppercase font-mono text-smoke/40 hover:text-smoke transition-colors duration-300 py-2"
+                >
+                  Request Consultation →
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating WhatsApp button */}
+      <motion.a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.4, type: 'spring', stiffness: 200 }}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.94 }}
+        className="fixed bottom-7 right-6 z-[100] flex items-center gap-3 bg-[#25D366] text-white rounded-full shadow-[0_6px_30px_rgba(37,211,102,0.45)] hover:shadow-[0_8px_40px_rgba(37,211,102,0.55)] transition-shadow duration-300 group overflow-hidden"
+        style={{ paddingLeft: '14px', paddingRight: '18px', paddingTop: '13px', paddingBottom: '13px' }}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="shrink-0">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span className="font-mono text-[10px] tracking-[0.2em] uppercase font-semibold whitespace-nowrap">
+          Chat with us
+        </span>
+      </motion.a>
 
       {/* Inquiry Modal */}
       <AnimatePresence>
@@ -167,36 +224,53 @@ const Header = () => {
                 </button>
 
                 <p className="font-mono text-[10px] tracking-[0.35em] text-jet-mid uppercase mb-3">
-                  Private Consultation
+                  Get In Touch
                 </p>
-                <h2 className="text-3xl md:text-4xl font-serif text-jet mb-10 leading-tight">
-                  Begin Your<br />
-                  <span className="italic font-light text-jet-mid">Curated Journey</span>
+                <h2 className="text-3xl md:text-4xl font-serif text-jet mb-2 leading-tight">
+                  Request a<br />
+                  <span className="italic font-light text-jet-mid">Free Consultation</span>
                 </h2>
+                <p className="text-sm text-jet/40 font-light mb-8">Or call us directly: <a href="tel:+919511285634" className="text-jet/70 hover:text-jet transition-colors">+91 95112 85634</a></p>
 
                 <form className="space-y-7">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                     <input type="text" placeholder="Full Name"
                       className="w-full bg-transparent border-b border-jet/15 py-3 text-sm text-jet placeholder-jet/28 outline-none focus:border-jet transition-colors duration-300 font-light" />
-                    <input type="email" placeholder="Email Address"
+                    <input type="tel" placeholder="+91 Phone Number"
                       className="w-full bg-transparent border-b border-jet/15 py-3 text-sm text-jet placeholder-jet/28 outline-none focus:border-jet transition-colors duration-300 font-light" />
                   </div>
                   <select className="w-full bg-transparent border-b border-jet/15 py-3 text-sm text-jet/50 outline-none focus:border-jet transition-colors duration-300 appearance-none">
-                    <option value="" className="bg-smoke">Select Project Scale</option>
-                    <option value="single" className="bg-smoke">Single Room Curation</option>
-                    <option value="apartment" className="bg-smoke">Full Apartment Remodel</option>
-                    <option value="villa" className="bg-smoke">Luxury Villa Architecture</option>
+                    <option value="" className="bg-smoke">What are you looking for?</option>
+                    <option value="curtains" className="bg-smoke">Curtains &amp; Drapes</option>
+                    <option value="sofa" className="bg-smoke">Sofa Covers</option>
+                    <option value="bedsheets" className="bg-smoke">Bedsheets &amp; Linen</option>
+                    <option value="cushions" className="bg-smoke">Cushions &amp; Carpets</option>
+                    <option value="all" className="bg-smoke">Complete Home Makeover</option>
                   </select>
-                  <textarea placeholder="Describe your vision..." rows={3}
+                  <textarea placeholder="Tell us about your space (room size, colour preference, budget)..." rows={3}
                     className="w-full bg-transparent border-b border-jet/15 py-3 text-sm text-jet placeholder-jet/28 outline-none focus:border-jet transition-colors duration-300 resize-none font-light" />
-                  <button type="button"
-                    className="flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase font-mono text-jet border border-jet/25 rounded-full px-8 py-4 hover:bg-jet hover:text-smoke transition-all duration-300 group"
-                  >
-                    Submit Request
-                    <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
-                      <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </button>
+
+                  <div className="flex flex-col sm:flex-row gap-3 pt-1">
+                    <button type="button"
+                      className="flex items-center justify-center gap-2.5 text-[10px] tracking-[0.25em] uppercase font-mono text-jet border border-jet/25 rounded-full px-8 py-4 hover:bg-jet hover:text-smoke transition-all duration-300 group flex-1"
+                    >
+                      Submit Request
+                      <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
+                        <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    <a
+                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2.5 text-[10px] tracking-[0.25em] uppercase font-mono bg-[#25D366] text-white rounded-full px-8 py-4 hover:bg-[#20bc5a] transition-colors duration-300 flex-1"
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                      </svg>
+                      WhatsApp Instead
+                    </a>
+                  </div>
                 </form>
               </div>
 

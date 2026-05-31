@@ -97,8 +97,8 @@ const ContactPage = () => {
                   </svg>
                   <div>
                     <p className="font-mono text-[9px] tracking-[0.25em] text-jet/30 uppercase mb-1">Contact</p>
-                    <a href="tel:+919999999999" className="text-sm text-jet-light font-light hover:text-jet transition-colors">
-                      Call for Directions
+                    <a href="tel:+919511285634" className="text-sm text-jet-light font-light hover:text-jet transition-colors">
+                      +91 95112 85634
                     </a>
                   </div>
                 </div>
@@ -162,8 +162,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="font-mono text-[9px] tracking-[0.25em] text-jet/30 uppercase mb-1">Call Us</p>
-                  <a href="tel:+919999999999" className="text-sm text-jet font-light hover:text-jet-mid transition-colors">
-                    +91 99999 99999
+                  <a href="tel:+919511285634" className="text-sm text-jet font-light hover:text-jet-mid transition-colors">
+                    +91 95112 85634
                   </a>
                 </div>
               </div>

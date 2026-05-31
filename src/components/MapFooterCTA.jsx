@@ -25,13 +25,13 @@ const MapFooterCTA = () => {
               </div>
               <div>
                 <h4 className="font-mono text-xs uppercase tracking-widest text-smoke/25 mb-2">Contact</h4>
-                <p>Email: info@saibabadecor.com<br/>Phone: +91 99999 99999</p>
+                <p>Email: info@saibabadecor.com<br/>Phone: +91 95112 85634</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/919511285634?text=Hi!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20curtains%2C%20sofa%20covers%20and%20home%20decor%20products."
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#25D366] text-white px-8 py-4 rounded-full font-mono text-xs tracking-widest uppercase hover:bg-smoke hover:text-jet transition-colors flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(37,211,102,0.25)]"
@@ -42,7 +42,7 @@ const MapFooterCTA = () => {
                 WhatsApp Us
               </a>
               <a
-                href="tel:+919999999999"
+                href="tel:+919511285634"
                 className="border border-smoke/30 text-smoke px-8 py-4 rounded-full font-mono text-xs tracking-widest uppercase hover:bg-smoke hover:text-jet transition-colors text-center"
               >
                 Call Now
