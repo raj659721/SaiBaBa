@@ -1,72 +1,45 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useCanvasVideo } from '../hooks/useCanvasVideo';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HEADLINES = [
-  { line1: 'Transform',    line2: 'Your Home' },
-  { line1: 'Premium Curtains', line2: '& Sofa Covers' },
-  { line1: 'Luxury Fabrics', line2: 'For Every Room' },
-  { line1: 'Sai Baba',     line2: 'Home Decor' },
+  { eyebrow: 'Welcome To Saibaba',  line1: 'Transform',     line2: 'Your Home' },
+  { eyebrow: 'Finest Fabrics',       line1: 'Premium',       line2: 'Curtains' },
+  { eyebrow: 'Bespoke Upholstery',   line1: 'Luxury Sofa',   line2: 'Covers' },
+  { eyebrow: 'Est. Nashik, India',   line1: 'Elegant',       line2: 'Handloom Decor' },
 ];
 
 const HeroCanvas = () => {
-  const canvasRef     = useRef(null);
   const sectionRef    = useRef(null);
   const scrollHintRef = useRef(null);
   const textRefs      = useRef([]);
-
-  const { loaded, drawFrame, progress } = useCanvasVideo(canvasRef, 210, '/frames-hero', 'frame_', 3, '.webp');
+  const overlayRef    = useRef(null);
 
   useEffect(() => {
-    if (!loaded || !canvasRef.current || !sectionRef.current) return;
+    if (!sectionRef.current) return;
 
-    drawFrame(0);
-
-    const obj = { frame: 0 };
-
-    /* ── Canvas frame scrub ── */
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top top',
-      end: '+=500%',
-      pin: true,
-      pinSpacing: true,
-      scrub: 0.6,
-      onUpdate: (self) => {
-        const frame = Math.floor(self.progress * 209);
-        if (obj.frame !== frame) {
-          obj.frame = frame;
-          drawFrame(frame);
-        }
-      },
-    });
-
-    /* ── Scroll-hint hide ── */
-    ScrollTrigger.create({
-      trigger: sectionRef.current,
-      start: 'top+=50 top',
-      onEnter:     () => gsap.to(scrollHintRef.current, { opacity: 0, y: 20, duration: 0.5 }),
-      onLeaveBack: () => gsap.to(scrollHintRef.current, { opacity: 1, y: 0,  duration: 0.5 }),
-    });
-
-    /* ── Headline cycling timeline ──
-       Total timeline = 20 units scrubbed across 480% of scroll.
-       Each slide: 1 unit fade-in │ ~3 units hold │ 1 unit fade-out
-       Gap between slides: 0.5 unit
-    */
     const ease = 'power2.inOut';
-    const blur0 = 'blur(0px)';
-    const blurIn  = 'blur(18px)';
-    const blurOut = 'blur(10px)';
 
+    /* ── Set initial states ── */
+    textRefs.current.forEach((el, i) => {
+      if (!el) return;
+      if (i === 0) {
+        gsap.set(el, { opacity: 1, y: 0, filter: 'blur(0px)' });
+      } else {
+        gsap.set(el, { opacity: 0, y: 60, filter: 'blur(16px)' });
+      }
+    });
+
+    /* ── Pin + text cycling timeline ── */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: 'top top',
         end: '+=480%',
+        pin: true,
+        pinSpacing: true,
         scrub: 1,
       },
     });
@@ -74,51 +47,65 @@ const HeroCanvas = () => {
     HEADLINES.forEach((_, i) => {
       const el = textRefs.current[i];
       if (!el) return;
-
-      const inAt  = i * 5;   // 0, 5, 10, 15
-      const outAt = inAt + 4; // 4, 9, 14, 19
-
-      if (i === 0) {
-        /* First slide starts fully visible */
-        gsap.set(el, { opacity: 1, y: 0, filter: blur0 });
-      } else {
-        /* Other slides start hidden */
-        gsap.set(el, { opacity: 0, y: 50, filter: blurIn });
-        /* Fade in */
-        tl.to(el, { opacity: 1, y: 0, filter: blur0, duration: 1, ease }, inAt);
+      const inAt  = i * 5;
+      const outAt = inAt + 4;
+      if (i > 0) {
+        tl.to(el, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1, ease }, inAt);
       }
-
-      /* Fade out — all except the last slide */
       if (i < HEADLINES.length - 1) {
-        tl.to(el, { opacity: 0, y: -40, filter: blurOut, duration: 1, ease }, outAt);
+        tl.to(el, { opacity: 0, y: -50, filter: 'blur(10px)', duration: 1, ease }, outAt);
       }
     });
 
+    /* ── Scroll hint hide ── */
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: 'top+=80 top',
+      onEnter:     () => gsap.to(scrollHintRef.current, { opacity: 0, y: 20, duration: 0.5 }),
+      onLeaveBack: () => gsap.to(scrollHintRef.current, { opacity: 1, y: 0,  duration: 0.5 }),
+    });
+
+    /* ── Subtle parallax on bg image ── */
+    gsap.to(overlayRef.current, {
+      yPercent: 18,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top top',
+        end: '+=480%',
+        scrub: true,
+      },
+    });
+
     return () => ScrollTrigger.getAll().forEach(t => t.kill());
-  }, [loaded, drawFrame]);
+  }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen w-full bg-jet overflow-hidden">
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden bg-ivory">
 
-      {/* Loading screen */}
-      {!loaded && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-50 gap-6 bg-jet">
-          <div className="w-48 h-[1px] bg-smoke/10 relative overflow-hidden">
-            <div className="absolute inset-y-0 left-0 bg-smoke transition-all duration-300" style={{ width: `${progress}%` }} />
-          </div>
-          <p className="font-mono text-xs tracking-[0.3em] text-smoke/35 uppercase">
-            Loading {progress}%
-          </p>
-        </div>
-      )}
+      {/* Background image */}
+      <div ref={overlayRef} className="absolute inset-[-15%] w-[130%] h-[130%]">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1920&q=90&fit=crop)` }}
+        />
+      </div>
 
-      {/* Canvas — pixel/video animation (untouched) */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover" />
+      {/* Warm overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-ivory/75 via-ivory/40 to-ivory/80 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ivory/60 via-transparent to-ivory/30 z-10 pointer-events-none" />
 
-      {/* Top gradient for text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-transparent to-transparent z-10 pointer-events-none" />
+      {/* Gold accent line */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent z-20 pointer-events-none" />
 
-      {/* Headline text layers — all stacked, each scrolls in/out */}
+      {/* Slide dot indicators — fixed bottom center */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-30 pointer-events-none">
+        {HEADLINES.map((_, dot) => (
+          <div key={dot} className="w-5 h-[1.5px] bg-walnut-mid/30 rounded-full" />
+        ))}
+      </div>
+
+      {/* Headline text layers */}
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
         {HEADLINES.map((h, i) => (
           <div
@@ -126,43 +113,50 @@ const HeroCanvas = () => {
             ref={el => textRefs.current[i] = el}
             className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
           >
-            {/* Eyebrow tag */}
-            <p className="font-mono text-[10px] md:text-xs tracking-[0.35em] text-smoke/50 uppercase mb-5 md:mb-7">
-              {i === 0 ? 'Welcome To' : i === 3 ? 'Est. 2010' : 'Saibaba Decor'}
-            </p>
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
+              <div className="w-6 h-[1px] bg-gold/60" />
+              <p className="font-mono text-[9px] md:text-[11px] tracking-[0.45em] text-walnut-mid/70 uppercase">
+                {h.eyebrow}
+              </p>
+              <div className="w-6 h-[1px] bg-gold/60" />
+            </div>
 
-            {/* Headline */}
-            <h1 className="font-serif leading-[1.05] tracking-tight drop-shadow-[0_4px_40px_rgba(0,0,0,0.85)]">
-              <span className="block text-[clamp(3rem,7.5vw,8.5rem)] text-smoke">
+            <h1 className="font-serif leading-[1.04] tracking-tight">
+              <span className="block text-[clamp(3.2rem,8vw,9rem)] text-walnut drop-shadow-[0_2px_20px_rgba(44,26,14,0.15)]">
                 {h.line1}
               </span>
-              <span className="block text-[clamp(3rem,7.5vw,8.5rem)] text-smoke/70 italic font-light">
+              <span className="block text-[clamp(3.2rem,8vw,9rem)] text-walnut-mid italic font-light">
                 {h.line2}
               </span>
             </h1>
 
-            {/* Slide counter dot */}
-            <div className="flex gap-2 mt-10 md:mt-12">
-              {HEADLINES.map((_, dot) => (
-                <div
-                  key={dot}
-                  className={`rounded-full transition-all duration-300 ${
-                    dot === i
-                      ? 'w-6 h-[2px] bg-smoke'
-                      : 'w-[6px] h-[2px] bg-smoke/25'
-                  }`}
-                />
-              ))}
-            </div>
+            {i === 0 && (
+              <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3">
+                <a
+                  href="/collections"
+                  className="px-8 py-3.5 bg-walnut text-ivory font-mono text-[10px] tracking-[0.25em] uppercase rounded-full hover:bg-walnut-2 transition-colors pointer-events-auto"
+                >
+                  Explore Collections
+                </a>
+                <a
+                  href="https://wa.me/919999999999"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-8 py-3.5 border border-gold/50 text-walnut font-mono text-[10px] tracking-[0.25em] uppercase rounded-full hover:bg-gold/10 transition-colors pointer-events-auto"
+                >
+                  WhatsApp Us
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
       {/* Scroll hint */}
-      <div ref={scrollHintRef} className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30 pointer-events-none">
-        <span className="font-mono text-[10px] tracking-[0.4em] text-smoke/40 uppercase">Scroll to Explore</span>
-        <div className="w-[1px] h-16 overflow-hidden">
-          <div className="w-full h-full bg-gradient-to-b from-smoke/50 to-transparent animate-bounce" />
+      <div ref={scrollHintRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30 pointer-events-none">
+        <span className="font-mono text-[9px] tracking-[0.4em] text-walnut-mid/50 uppercase">Scroll to Explore</span>
+        <div className="w-[1px] h-12 overflow-hidden">
+          <div className="w-full h-full bg-gradient-to-b from-gold/60 to-transparent animate-bounce" />
         </div>
       </div>
     </section>
