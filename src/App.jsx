@@ -16,46 +16,67 @@ import ContactPage from './components/ContactPage'
 import Footer from './components/Footer'
 
 const CustomCursor = () => {
-  const cursorDotRef = useRef(null);
-  const cursorGlowRef = useRef(null);
+  const dotRef  = useRef(null);
+  const ringRef = useRef(null);
+  const mouse   = useRef({ x: 0, y: 0 });
+  const ring    = useRef({ x: 0, y: 0 });
+  const rafRef  = useRef(null);
 
   useEffect(() => {
-    const moveCursor = (e) => {
-      gsap.to(cursorDotRef.current, { x: e.clientX, y: e.clientY, duration: 0 });
-      gsap.to(cursorGlowRef.current, { x: e.clientX, y: e.clientY, duration: 0.15, ease: 'power2.out' });
+    const onMove = (e) => {
+      mouse.current = { x: e.clientX, y: e.clientY };
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+      }
     };
 
-    const handleHover = () => {
-      gsap.to(cursorGlowRef.current, { scale: 1.6, backgroundColor: 'rgba(201,168,76,0.15)', duration: 0.3 });
-      gsap.to(cursorDotRef.current, { scale: 0, duration: 0.2 });
+    const lerp = (a, b, t) => a + (b - a) * t;
+
+    const animate = () => {
+      ring.current.x = lerp(ring.current.x, mouse.current.x, 0.10);
+      ring.current.y = lerp(ring.current.y, mouse.current.y, 0.10);
+      if (ringRef.current) {
+        ringRef.current.style.transform =
+          `translate(${ring.current.x}px, ${ring.current.y}px) translate(-50%,-50%)`;
+      }
+      rafRef.current = requestAnimationFrame(animate);
     };
 
-    const handleHoverOut = () => {
-      gsap.to(cursorGlowRef.current, { scale: 1, backgroundColor: 'rgba(201,168,76,0.08)', duration: 0.3 });
-      gsap.to(cursorDotRef.current, { scale: 1, duration: 0.2 });
+    const onEnter = () => {
+      dotRef.current?.classList.add('hovered');
+      ringRef.current?.classList.add('hovered');
+    };
+    const onLeave = () => {
+      dotRef.current?.classList.remove('hovered');
+      ringRef.current?.classList.remove('hovered');
     };
 
-    window.addEventListener('mousemove', moveCursor);
+    const attachListeners = () => {
+      document.querySelectorAll('a, button, [role="button"]').forEach((el) => {
+        el.addEventListener('mouseenter', onEnter);
+        el.addEventListener('mouseleave', onLeave);
+      });
+    };
 
-    const clickables = document.querySelectorAll('a, button, input, select, textarea, [role="button"]');
-    clickables.forEach((el) => {
-      el.addEventListener('mouseenter', handleHover);
-      el.addEventListener('mouseleave', handleHoverOut);
-    });
+    window.addEventListener('mousemove', onMove, { passive: true });
+    rafRef.current = requestAnimationFrame(animate);
+    attachListeners();
+
+    // Re-attach on any DOM mutation (new buttons rendered)
+    const observer = new MutationObserver(attachListeners);
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      clickables.forEach((el) => {
-        el.removeEventListener('mouseenter', handleHover);
-        el.removeEventListener('mouseleave', handleHoverOut);
-      });
+      window.removeEventListener('mousemove', onMove);
+      cancelAnimationFrame(rafRef.current);
+      observer.disconnect();
     };
   }, []);
 
   return (
     <>
-      <div ref={cursorDotRef} className="cursor-dot hidden md:block" />
-      <div ref={cursorGlowRef} className="cursor-glow hidden md:block" />
+      <div ref={dotRef}  className="cursor-dot" />
+      <div ref={ringRef} className="cursor-glow" />
     </>
   );
 };
