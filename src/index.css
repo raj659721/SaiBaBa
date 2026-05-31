@@ -3,32 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --bg:      #FDFAF4;
-  --text:    #2C1A0E;
-  --gold:    #C9A84C;
-  --cream:   #EAE4DA;
-  --walnut:  #2C1A0E;
+  --bg-color: #F5F4F2;
+  --text-color: #0C0C0C;
 }
 
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
 body {
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   cursor: none;
 }
 
-/* Subtle warm grain */
+/* ── Subtle grain texture ── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M45 5L85 45L45 85L5 45Z' fill='none' stroke='%232C1A0E' stroke-width='0.4'/%3E%3Ccircle cx='45' cy='5' r='1' fill='%23C9A84C'/%3E%3Ccircle cx='85' cy='45' r='1' fill='%23C9A84C'/%3E%3Ccircle cx='45' cy='85' r='1' fill='%23C9A84C'/%3E%3Ccircle cx='5' cy='45' r='1' fill='%23C9A84C'/%3E%3C/svg%3E");
-  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M45 5L85 45L45 85L5 45Z' fill='none' stroke='%230C0C0C' stroke-width='0.45'/%3E%3Ccircle cx='45' cy='5' r='1.2' fill='%230C0C0C'/%3E%3Ccircle cx='85' cy='45' r='1.2' fill='%230C0C0C'/%3E%3Ccircle cx='45' cy='85' r='1.2' fill='%230C0C0C'/%3E%3Ccircle cx='5' cy='45' r='1.2' fill='%230C0C0C'/%3E%3C/svg%3E");
+  opacity: 0.025;
   pointer-events: none;
   z-index: 0;
 }
@@ -39,48 +32,36 @@ body::before {
 }
 
 ::selection {
-  background: #C9A84C;
-  color: #FDFAF4;
+  background: #0C0C0C;
+  color: #F5F4F2;
 }
 
 a, button, input, select, textarea, [role="button"] {
   cursor: none;
 }
 
-/* ── Warm glassmorphism pill (navbar) ── */
 .glass-pill {
-  background: rgba(253, 250, 244, 0.88);
-  border: 1px solid rgba(201, 168, 76, 0.28);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 8px 40px rgba(44, 26, 14, 0.10), 0 1px 0 rgba(255,255,255,0.6) inset;
-}
-
-/* ── Warm glassmorphism panel ── */
-.glass-panel {
-  background: rgba(253, 250, 244, 0.78);
-  border: 1px solid rgba(201, 168, 76, 0.20);
+  background: rgba(245, 244, 242, 0.92);
+  border: 1px solid rgba(12, 12, 12, 0.10);
+  border-radius: 9999px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* ── Dark glass panel (on walnut bg) ── */
-.glass-dark {
-  background: rgba(44, 26, 14, 0.55);
-  border: 1px solid rgba(201, 168, 76, 0.20);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+.glass-panel {
+  background: rgba(245, 244, 242, 0.78);
+  border: 1px solid rgba(12, 12, 12, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* ── Gold gradient text ── */
 .text-gradient-gold {
-  background: linear-gradient(135deg, #C9A84C, #9B7A28);
+  background: linear-gradient(to right, #0C0C0C, #3D3D3D);
   -webkit-background-clip: text;
-  background-clip: text;
   color: transparent;
 }
 
-/* ── Luxury divider ── */
+/* ── Refined section divider ── */
 .luxury-divider {
   position: relative;
   display: flex;
@@ -93,37 +74,47 @@ a, button, input, select, textarea, [role="button"] {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(201,168,76,0.35));
+  background: linear-gradient(to right, transparent, rgba(12,12,12,0.18));
 }
 .luxury-divider::after {
-  background: linear-gradient(to left, transparent, rgba(201,168,76,0.35));
+  background: linear-gradient(to left, transparent, rgba(12,12,12,0.18));
 }
 
-/* ── Warm cursor ── */
 .cursor-dot {
-  width: 6px;
-  height: 6px;
-  background-color: #C9A84C;
+  width: 7px;
+  height: 7px;
+  background-color: #0C0C0C;
   border-radius: 50%;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 .cursor-glow {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(201, 168, 76, 0.45);
-  background-color: rgba(201, 168, 76, 0.06);
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(12, 12, 12, 0.22);
+  background-color: rgba(12, 12, 12, 0.04);
   border-radius: 50%;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, background-color 0.3s;
+  transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s;
 }
 
-::-webkit-scrollbar { width: 0; background: transparent; }
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.marquee-container {
+  display: flex;
+  width: 200%;
+}
