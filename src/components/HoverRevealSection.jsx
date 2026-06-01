@@ -1,15 +1,64 @@
 import React, { useState } from 'react';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const categories = [
-  { name: 'Curtains',    count: '24', tag: 'Window Dressing', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80&fit=crop' },
-  { name: 'Sofa Covers', count: '18', tag: 'Upholstery',      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80&fit=crop' },
-  { name: 'Bedsheets',   count: '36', tag: 'Bedroom Linen',   image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=600&q=80&fit=crop' },
-  { name: 'Cushions',    count: '42', tag: 'Accent Pieces',   image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&fit=crop' },
-  { name: 'Wallpapers',  count: '29', tag: 'Wall Coverings',  image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&q=80&fit=crop' },
-  { name: 'Carpets',     count: '15', tag: 'Floor Textiles',  image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80&fit=crop' },
-  { name: 'Home Decor',  count: '58', tag: 'Curated Objects', image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&q=80&fit=crop' },
-  { name: 'Handloom',    count: '21', tag: 'Artisan Craft',   image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80&fit=crop' },
+  {
+    name: 'Curtains & Drapes',
+    count: '24',
+    tag: 'Window Dressing',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Sofa Covers',
+    count: '18',
+    tag: 'Upholstery',
+    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Bedsheets & Linen',
+    count: '36',
+    tag: 'Bedroom Textiles',
+    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Cushion Covers',
+    count: '42',
+    tag: 'Accent Pieces',
+    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Wallpapers',
+    count: '29',
+    tag: 'Wall Coverings',
+    image: 'https://images.unsplash.com/photo-1618220179428-22790b46a013?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Carpets & Rugs',
+    count: '15',
+    tag: 'Floor Textiles',
+    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Home Decor Accents',
+    count: '58',
+    tag: 'Curated Objects',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
+  {
+    name: 'Handloom Textiles',
+    count: '21',
+    tag: 'Artisan Craft',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=85&fit=crop',
+    path: '/collections'
+  },
 ];
 
 const total = categories.reduce((s, c) => s + parseInt(c.count), 0);
@@ -24,12 +73,12 @@ export default function HoverRevealSection() {
 
   return (
     <section
-      className="relative bg-smoke-2 overflow-hidden py-32 px-6 md:px-16"
+      className="relative bg-smoke-2 overflow-hidden py-28 md:py-36 px-6 md:px-16"
       onMouseMove={(e) => { rawX.set(e.clientX + 24); rawY.set(e.clientY - 140); }}
     >
-      {/* Ornamental medallion */}
+      {/* Ornamental medallion — contained inside overflow-hidden */}
       <svg
-        className="absolute right-[-80px] top-1/2 -translate-y-1/2 w-[560px] h-[560px] pointer-events-none select-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[480px] h-[480px] pointer-events-none select-none translate-x-1/4"
         viewBox="0 0 400 400" fill="none"
         style={{ opacity: 0.035 }}
       >
@@ -39,8 +88,6 @@ export default function HoverRevealSection() {
         <path d="M200 140L260 200L200 260L140 200Z" stroke="#0C0C0C" strokeWidth="0.5"/>
         <line x1="200" y1="20" x2="200" y2="380" stroke="#0C0C0C" strokeWidth="0.3"/>
         <line x1="20" y1="200" x2="380" y2="200" stroke="#0C0C0C" strokeWidth="0.3"/>
-        <line x1="60" y1="60" x2="340" y2="340" stroke="#0C0C0C" strokeWidth="0.25"/>
-        <line x1="340" y1="60" x2="60" y2="340" stroke="#0C0C0C" strokeWidth="0.25"/>
         <circle cx="200" cy="20" r="3.5" fill="#9A9A9A"/>
         <circle cx="380" cy="200" r="3.5" fill="#9A9A9A"/>
         <circle cx="200" cy="380" r="3.5" fill="#9A9A9A"/>
@@ -57,7 +104,7 @@ export default function HoverRevealSection() {
       <div className="relative z-10 max-w-[1400px] mx-auto">
 
         {/* Header row */}
-        <div className="flex items-end justify-between mb-20">
+        <div className="flex items-end justify-between mb-16 md:mb-20">
           <div>
             <p className="font-mono text-[10px] tracking-[0.45em] text-jet-mid uppercase mb-5">
               Our Collections
@@ -96,60 +143,62 @@ export default function HoverRevealSection() {
                   transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 />
 
-                <div className="flex items-center justify-between py-5 md:py-6">
-                  <div className="flex items-center gap-6 md:gap-10">
-                    <span className="font-mono text-[10px] text-jet/18 tabular-nums w-5 shrink-0">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+                <Link to={cat.path} className="block">
+                  <div className="flex items-center justify-between py-5 md:py-6">
+                    <div className="flex items-center gap-6 md:gap-10">
+                      <span className="font-mono text-[10px] text-jet/18 tabular-nums w-5 shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
 
-                    <div className="flex items-baseline gap-4 md:gap-6">
-                      <motion.span
-                        className="font-serif text-xl md:text-2xl tracking-tight"
+                      <div className="flex items-baseline gap-4 md:gap-6">
+                        <motion.span
+                          className="font-serif text-xl md:text-2xl tracking-tight"
+                          animate={{
+                            x: isActive ? 8 : 0,
+                            color: isActive ? '#0C0C0C' : 'rgba(12,12,12,0.45)',
+                          }}
+                          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          {cat.name}
+                        </motion.span>
+
+                        <motion.span
+                          className="hidden md:block font-mono text-[9px] tracking-[0.3em] uppercase text-silver"
+                          initial={{ opacity: 0, x: -4 }}
+                          animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -4 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {cat.tag}
+                        </motion.span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-6 md:gap-10">
+                      <span className="hidden md:block font-mono text-[11px] text-jet/25 tabular-nums">
+                        {cat.count} pieces
+                      </span>
+
+                      <motion.div
+                        className="w-8 h-8 rounded-none border flex items-center justify-center shrink-0"
                         animate={{
-                          x: isActive ? 8 : 0,
-                          color: isActive ? '#0C0C0C' : 'rgba(12,12,12,0.45)',
+                          backgroundColor: isActive ? 'rgba(12,12,12,0.06)' : 'rgba(12,12,12,0)',
+                          borderColor:     isActive ? 'rgba(12,12,12,0.35)' : 'rgba(12,12,12,0.12)',
                         }}
-                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        {cat.name}
-                      </motion.span>
-
-                      <motion.span
-                        className="hidden md:block font-mono text-[9px] tracking-[0.3em] uppercase text-silver"
-                        initial={{ opacity: 0, x: -4 }}
-                        animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -4 }}
                         transition={{ duration: 0.3 }}
                       >
-                        {cat.tag}
-                      </motion.span>
+                        <motion.svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                          animate={{ x: isActive ? 1 : 0, y: isActive ? -1 : 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <path d="M1 10L10 1M10 1H3.5M10 1V7.5"
+                            stroke={isActive ? '#0C0C0C' : 'rgba(12,12,12,0.25)'}
+                            strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"
+                          />
+                        </motion.svg>
+                      </motion.div>
                     </div>
                   </div>
-
-                  <div className="flex items-center gap-6 md:gap-10">
-                    <span className="hidden md:block font-mono text-[11px] text-jet/25 tabular-nums">
-                      {cat.count} pieces
-                    </span>
-
-                    <motion.div
-                      className="w-8 h-8 rounded-none border flex items-center justify-center shrink-0"
-                      animate={{
-                        backgroundColor: isActive ? 'rgba(12,12,12,0.06)' : 'rgba(12,12,12,0)',
-                        borderColor:     isActive ? 'rgba(12,12,12,0.35)' : 'rgba(12,12,12,0.12)',
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <motion.svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                        animate={{ x: isActive ? 1 : 0, y: isActive ? -1 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <path d="M1 10L10 1M10 1H3.5M10 1V7.5"
-                          stroke={isActive ? '#0C0C0C' : 'rgba(12,12,12,0.25)'}
-                          strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"
-                        />
-                      </motion.svg>
-                    </motion.div>
-                  </div>
-                </div>
+                </Link>
               </motion.li>
             );
           })}
@@ -160,15 +209,17 @@ export default function HoverRevealSection() {
           <p className="font-mono text-[10px] tracking-[0.3em] text-jet/20 uppercase">
             Saibaba Home Decor — Since 2010
           </p>
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.3em] uppercase text-jet/45 border border-jet/15 rounded-full px-5 py-3 hover:border-jet hover:text-jet hover:bg-jet/4 transition-all duration-300 group"
-          >
-            View All Categories
-            <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
-              <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </motion.button>
+          <Link to="/collections">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.3em] uppercase text-jet/45 border border-jet/15 rounded-full px-5 py-3 hover:border-jet hover:text-jet hover:bg-jet/4 transition-all duration-300 group cursor-pointer"
+            >
+              View All Categories
+              <svg width="9" height="9" viewBox="0 0 10 10" fill="none" className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
+                <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </motion.div>
+          </Link>
         </div>
       </div>
 

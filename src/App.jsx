@@ -9,6 +9,8 @@ import HeroCanvas from './components/HeroCanvas'
 import BentoGrid from './components/BentoGrid'
 import AmenitiesSection from './components/AmenitiesSection'
 import HoverRevealSection from './components/HoverRevealSection'
+import BeforeAfterSection from './components/BeforeAfterSection'
+import BestSellingProducts from './components/BestSellingProducts'
 import CollectionsPage from './components/CollectionsPage'
 import JournalPage from './components/JournalPage'
 import SpacesPage from './components/SpacesPage'
@@ -62,7 +64,6 @@ const CustomCursor = () => {
     rafRef.current = requestAnimationFrame(animate);
     attachListeners();
 
-    // Re-attach on any DOM mutation (new buttons rendered)
     const observer = new MutationObserver(attachListeners);
     observer.observe(document.body, { childList: true, subtree: true });
 
@@ -113,7 +114,9 @@ function App() {
               <HeroCanvas />
               <HoverRevealSection />
               <AmenitiesSection />
+              <BeforeAfterSection />
               <BentoGrid />
+              <BestSellingProducts />
             </main>
           } />
           <Route path="/collections" element={<CollectionsPage />} />

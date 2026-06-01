@@ -10,7 +10,7 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'May 2026',
     readTime: '6 min',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1000&q=85&fit=crop',
     featured: true,
   },
   {
@@ -21,7 +21,7 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'April 2026',
     readTime: '4 min',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700&q=85&fit=crop',
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'March 2026',
     readTime: '5 min',
-    image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=700&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=700&q=85&fit=crop',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'February 2026',
     readTime: '8 min',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700&q=85&fit=crop',
   },
   {
     id: 5,
@@ -51,7 +51,47 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'January 2026',
     readTime: '7 min',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=700&q=80&fit=crop',
+    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=700&q=85&fit=crop',
+  },
+  {
+    id: 6,
+    tag: 'Care Guide',
+    title: 'How to Care for Your Premium Curtains & Sofa Covers',
+    excerpt: 'Expert tips on washing, drying and maintaining your bespoke textiles so they stay beautiful for years — season after season.',
+    author: 'Saibaba Design Studio',
+    date: 'December 2025',
+    readTime: '3 min',
+    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=85&fit=crop',
+  },
+  {
+    id: 7,
+    tag: 'Design Tips',
+    title: 'How to Choose Curtain Length for Every Room',
+    excerpt: 'Sill-length, apron-length or full-length puddle? A definitive room-by-room guide to picking the right curtain drop for your home.',
+    author: 'Saibaba Design Studio',
+    date: 'November 2025',
+    readTime: '5 min',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=85&fit=crop',
+  },
+  {
+    id: 8,
+    tag: 'Seasonal Edit',
+    title: 'Winter Warmth: Textiles That Transform Your Home in December',
+    excerpt: 'From thick velvet drapes to handloom wool throws — our favourite picks for creating a warm, cocooning home as temperatures drop.',
+    author: 'Saibaba Design Studio',
+    date: 'October 2025',
+    readTime: '4 min',
+    image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=700&q=85&fit=crop',
+  },
+  {
+    id: 9,
+    tag: 'How-to Guide',
+    title: 'Measuring Your Windows for Custom Curtains — The Right Way',
+    excerpt: 'A step-by-step guide to measuring windows for bespoke curtains, including common mistakes to avoid and how our team can help.',
+    author: 'Saibaba Design Studio',
+    date: 'September 2025',
+    readTime: '4 min',
+    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=700&q=85&fit=crop',
   },
 ];
 
@@ -79,6 +119,7 @@ export default function JournalPage() {
           </motion.h1>
         </div>
 
+        {/* Featured article */}
         <motion.div
           initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}
           onMouseEnter={() => setHovered(featured.id)}
@@ -133,13 +174,14 @@ export default function JournalPage() {
           />
         </motion.div>
 
+        {/* Article grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-l border-jet/[0.08] mt-px">
           {rest.map((article, i) => (
             <motion.div
               key={article.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.7, delay: 0.3 + i * 0.07, ease: [0.16, 1, 0.3, 1] }}
               onMouseEnter={() => setHovered(article.id)}
               onMouseLeave={() => setHovered(null)}
               className="relative group border-r border-b border-jet/[0.08] cursor-pointer overflow-hidden bg-smoke hover:bg-smoke-2 transition-colors duration-300"

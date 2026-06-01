@@ -6,25 +6,25 @@ const amenitiesList = [
     id: '01',
     title: 'Handpicked Fabrics',
     description: 'Every fabric is personally selected from trusted weavers and mills across India — from Varanasi silk to Rajasthani block prints and Egyptian cotton.',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1000&q=80&fit=crop'
+    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1100&q=85&fit=crop'
   },
   {
     id: '02',
     title: 'Custom Tailoring',
     description: 'We measure your windows, sofas and beds precisely — then craft each piece to fit perfectly. No standard sizes, no compromises.',
-    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1000&q=80&fit=crop'
+    image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1100&q=85&fit=crop'
   },
   {
     id: '03',
     title: 'Premium Textile Range',
-    description: 'Choose from silk, velvet, Belgian linen, Egyptian cotton, handloom and more. Our collection spans over 200 fabrics in every colour and texture.',
-    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1000&q=80&fit=crop'
+    description: 'Choose from silk, velvet, Belgian linen, Egyptian cotton, handloom and more. Our collection spans over 210 fabrics in every colour and texture.',
+    image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1100&q=85&fit=crop'
   },
   {
     id: '04',
     title: 'Home Delivery & Installation',
-    description: 'Free delivery across India with professional installation by our trained team. We handle everything — from measurement to final fitting.',
-    image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=1000&q=80&fit=crop'
+    description: 'Free delivery across Nashik with professional installation by our trained team. We handle everything — from measurement to final fitting.',
+    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1100&q=85&fit=crop'
   }
 ];
 
@@ -33,7 +33,7 @@ const AmenitiesSection = () => {
   const activeAmenity = amenitiesList.find(a => a.id === activeId);
 
   return (
-    <section className="bg-smoke text-jet py-32 px-4 md:px-12 min-h-screen flex items-center relative overflow-hidden">
+    <section className="bg-smoke text-jet py-28 md:py-36 px-4 md:px-12 min-h-screen flex items-center relative overflow-hidden">
       <svg
         className="absolute left-[-100px] bottom-[-100px] w-[500px] h-[500px] pointer-events-none select-none"
         viewBox="0 0 400 400" fill="none"
