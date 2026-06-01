@@ -21,7 +21,7 @@ const categories = [
     name: 'Bedsheets & Linen',
     count: '36',
     tag: 'Bedroom Textiles',
-    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=700&q=85&fit=crop',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=85&fit=crop',
     path: '/collections'
   },
   {
@@ -35,7 +35,7 @@ const categories = [
     name: 'Wallpapers',
     count: '29',
     tag: 'Wall Coverings',
-    image: 'https://images.unsplash.com/photo-1618220179428-22790b46a013?w=700&q=85&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=700&q=85&fit=crop',
     path: '/collections'
   },
   {

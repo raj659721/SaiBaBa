@@ -21,7 +21,7 @@ export const bentoCards = [
     dimensions: 'All Standard Sizes',
     description: '400-thread-count Egyptian cotton and handloom bedsheets — breathable, soft, and built to last a lifetime.',
     materials: ['Egyptian Cotton', 'Handloom Weave', 'Bamboo Blend'],
-    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=900&q=85&fit=crop',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85&fit=crop',
   },
   {
     id: 'cushions',

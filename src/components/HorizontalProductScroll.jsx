@@ -6,11 +6,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const categories = [
   { id: 1, title: 'Bespoke Curtains', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800' },
-  { id: 2, title: 'Handloom Bedsheets', image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?auto=format&fit=crop&q=80&w=800' },
+  { id: 2, title: 'Handloom Bedsheets', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=800' },
   { id: 3, title: 'Luxury Sofa Covers', image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=800' },
   { id: 4, title: 'Velvet Cushions', image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&q=80&w=800' },
   { id: 5, title: 'Persian Carpets', image: 'https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&q=80&w=800' },
-  { id: 6, title: 'Premium Wallpapers', image: 'https://images.unsplash.com/photo-1618220179428-22790b46a013?auto=format&fit=crop&q=80&w=800' },
+  { id: 6, title: 'Premium Wallpapers', image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&q=80&w=800' },
 ];
 
 const HorizontalProductScroll = () => {

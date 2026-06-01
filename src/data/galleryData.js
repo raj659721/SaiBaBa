@@ -27,7 +27,7 @@ export const galleryData = [
     designer: 'Saibaba Design Studio',
     aspectRatio: '1:1 Square',
     style: 'Organic Modern',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'lr-2',
@@ -47,7 +47,7 @@ export const galleryData = [
     designer: 'Saibaba Design Studio',
     aspectRatio: '4:5 Portrait',
     style: 'Soft Luxury',
-    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'lr-3',
@@ -77,6 +77,6 @@ export const galleryData = [
     designer: 'Saibaba Design Studio',
     aspectRatio: '16:9 Cinematic',
     style: 'Bold Eclectic',
-    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200'
   },
 ];

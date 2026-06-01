@@ -37,7 +37,7 @@ const products = [
     originalPrice: '₹2,800',
     tag: 'Premium',
     material: 'Egyptian Cotton',
-    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?auto=format&fit=crop&q=85&w=700',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=85&w=700',
   },
   {
     id: 5,

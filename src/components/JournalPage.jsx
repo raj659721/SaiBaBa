@@ -51,7 +51,7 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'January 2026',
     readTime: '7 min',
-    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=700&q=85&fit=crop',
+    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=700&q=85&fit=crop',
   },
   {
     id: 6,
@@ -91,7 +91,7 @@ const articles = [
     author: 'Saibaba Design Studio',
     date: 'September 2025',
     readTime: '4 min',
-    image: 'https://images.unsplash.com/photo-1522771739223-07141528c371?w=700&q=85&fit=crop',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=700&q=85&fit=crop',
   },
 ];
 
