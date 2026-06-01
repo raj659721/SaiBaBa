@@ -154,7 +154,7 @@ const BestSellingProducts = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-16 flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link to="/collections">
             <motion.div
               whileHover={{ scale: 1.02 }}

@@ -78,15 +78,15 @@ const BentoGrid = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-jet/85 via-jet/15 to-transparent" />
                 <div className="absolute inset-0 bg-pearl/0 group-hover:bg-pearl/[0.03] transition-all duration-700" />
 
-                {/* Hover detail */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end text-smoke opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
-                  <div className="border-t border-smoke/15 pt-6">
-                    <h3 className="text-2xl md:text-3xl font-serif mb-2">{card.title}</h3>
-                    <p className="font-mono text-xs tracking-widest text-silver mb-4">{card.dimensions}</p>
-                    <p className="text-sm font-light leading-relaxed text-smoke/70 mb-6">{card.description}</p>
+                {/* Info — always visible on mobile, hover-only on desktop */}
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end text-smoke opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-20">
+                  <div className="border-t border-smoke/15 pt-5">
+                    <h3 className="text-xl md:text-3xl font-serif mb-1.5">{card.title}</h3>
+                    <p className="font-mono text-[10px] tracking-widest text-silver mb-3">{card.dimensions}</p>
+                    <p className="text-sm font-light leading-relaxed text-smoke/70 mb-4 line-clamp-2 md:line-clamp-none">{card.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {card.materials.map(mat => (
-                        <span key={mat} className="px-3 py-1 border border-smoke/20 rounded-full text-xs text-smoke/80 backdrop-blur-md bg-smoke/5">
+                        <span key={mat} className="px-2.5 py-1 border border-smoke/20 rounded-full text-[10px] text-smoke/80 backdrop-blur-md bg-smoke/5">
                           {mat}
                         </span>
                       ))}
@@ -94,8 +94,8 @@ const BentoGrid = () => {
                   </div>
                 </div>
 
-                {/* Default title */}
-                <div className={`absolute p-8 flex flex-col justify-between h-full text-smoke pointer-events-none group-hover:opacity-0 transition-opacity duration-300 ${isSignature ? 'top-0 left-0' : 'inset-0'}`}>
+                {/* Default title — desktop only, hides on hover */}
+                <div className={`absolute p-8 hidden md:flex flex-col justify-between h-full text-smoke pointer-events-none md:group-hover:opacity-0 transition-opacity duration-300 ${isSignature ? 'top-0 left-0' : 'inset-0'}`}>
                   <span className="font-mono text-xs text-smoke/30">{String(index + 1).padStart(2, '0')}</span>
                   <div>
                     {isSignature && (

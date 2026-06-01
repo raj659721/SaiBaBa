@@ -212,10 +212,10 @@ const ContactPage = () => {
                 </div>
               ))}
               <div className="space-y-1.5">
-                <label className="font-mono text-[9px] tracking-widest text-jet/30">INTERIOR BUDGET</label>
+                <label className="font-mono text-[9px] tracking-widest text-jet/30">PHONE NUMBER</label>
                 <input
-                  type="text"
-                  placeholder="₹5,00,000 – ₹50,00,000"
+                  type="tel"
+                  placeholder="+91 98765 43210"
                   className="w-full border-b border-jet/15 bg-transparent py-2.5 text-sm text-jet placeholder-jet/22 outline-none focus:border-jet transition-colors duration-300 font-light"
                 />
               </div>

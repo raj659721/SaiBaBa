@@ -103,7 +103,7 @@ const AmenitiesSection = () => {
           </div>
         </div>
 
-        <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(12,12,12,0.10)] bg-smoke-3 ring-1 ring-jet/8">
+        <div className="relative h-[280px] sm:h-[360px] lg:h-auto lg:aspect-[3/4] rounded-3xl overflow-hidden shadow-[0_40px_100px_rgba(12,12,12,0.10)] bg-smoke-3 ring-1 ring-jet/8">
           <AnimatePresence mode="wait">
             <motion.img
               key={activeAmenity.image}

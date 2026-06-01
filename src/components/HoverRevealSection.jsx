@@ -150,9 +150,9 @@ export default function HoverRevealSection() {
                         {String(i + 1).padStart(2, '0')}
                       </span>
 
-                      <div className="flex items-baseline gap-4 md:gap-6">
+                      <div className="flex flex-col md:flex-row md:items-baseline gap-0.5 md:gap-6">
                         <motion.span
-                          className="font-serif text-xl md:text-2xl tracking-tight"
+                          className="font-serif text-lg md:text-2xl tracking-tight"
                           animate={{
                             x: isActive ? 8 : 0,
                             color: isActive ? '#0C0C0C' : 'rgba(12,12,12,0.45)',
@@ -163,9 +163,9 @@ export default function HoverRevealSection() {
                         </motion.span>
 
                         <motion.span
-                          className="hidden md:block font-mono text-[9px] tracking-[0.3em] uppercase text-silver"
+                          className="font-mono text-[8px] md:text-[9px] tracking-[0.25em] uppercase text-silver/70 md:text-silver"
                           initial={{ opacity: 0, x: -4 }}
-                          animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -4 }}
+                          animate={{ opacity: isActive ? 1 : 0.6, x: isActive ? 0 : -4 }}
                           transition={{ duration: 0.3 }}
                         >
                           {cat.tag}
