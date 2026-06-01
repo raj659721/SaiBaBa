@@ -6,8 +6,6 @@ const products = [
   {
     id: 1,
     name: 'Velvet Sofa Cover',
-    price: '₹2,499',
-    originalPrice: '₹3,200',
     tag: 'Best Seller',
     material: 'Premium Velvet',
     image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=85&w=700',
@@ -15,8 +13,6 @@ const products = [
   {
     id: 2,
     name: 'Hand-Embroidered Cushion',
-    price: '₹899',
-    originalPrice: '₹1,200',
     tag: 'Artisan',
     material: 'Silk Embroidery',
     image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=85&w=700',
@@ -24,8 +20,6 @@ const products = [
   {
     id: 3,
     name: 'Handloom Dhurrie Carpet',
-    price: '₹4,999',
-    originalPrice: '₹6,500',
     tag: 'Handwoven',
     material: 'Pure Cotton',
     image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&q=85&w=700',
@@ -33,8 +27,6 @@ const products = [
   {
     id: 4,
     name: 'Egyptian Cotton Bedsheet',
-    price: '₹1,999',
-    originalPrice: '₹2,800',
     tag: 'Premium',
     material: 'Egyptian Cotton',
     image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=85&w=700',
@@ -42,8 +34,6 @@ const products = [
   {
     id: 5,
     name: 'Silk Window Curtain Pair',
-    price: '₹5,499',
-    originalPrice: '₹7,000',
     tag: 'Signature',
     material: 'Pure Silk',
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=85&w=700',
@@ -51,8 +41,6 @@ const products = [
   {
     id: 6,
     name: 'Block Print Table Runner',
-    price: '₹649',
-    originalPrice: '₹899',
     tag: 'Artisan',
     material: 'Handblock Cotton',
     image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=85&w=700',
@@ -60,8 +48,6 @@ const products = [
   {
     id: 7,
     name: 'Velvet Blackout Curtains',
-    price: '₹3,299',
-    originalPrice: '₹4,200',
     tag: 'Best Seller',
     material: 'Blackout Velvet',
     image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=85&w=700',
@@ -69,8 +55,6 @@ const products = [
   {
     id: 8,
     name: 'Premium Sofa Throw Blanket',
-    price: '₹1,299',
-    originalPrice: '₹1,800',
     tag: 'Cosy Pick',
     material: 'Merino Blend',
     image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&q=85&w=700',
@@ -163,11 +147,7 @@ const BestSellingProducts = () => {
               {/* Info */}
               <div className="px-0.5">
                 <p className="font-mono text-[9px] tracking-[0.2em] text-silver/50 uppercase mb-1">{product.material}</p>
-                <h3 className="font-serif text-base text-smoke leading-snug mb-2">{product.name}</h3>
-                <div className="flex items-center gap-2.5">
-                  <span className="font-mono text-sm text-smoke">{product.price}</span>
-                  <span className="font-mono text-xs text-smoke/25 line-through">{product.originalPrice}</span>
-                </div>
+                <h3 className="font-serif text-base text-smoke leading-snug">{product.name}</h3>
               </div>
             </motion.div>
           ))}

@@ -9,7 +9,6 @@ const collections = [
     count: 24,
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=900&q=85&fit=crop',
     desc: 'Floor-to-ceiling drapes custom-stitched in silk, linen and velvet for every window size.',
-    priceFrom: '₹1,499',
   },
   {
     id: 2,
@@ -18,7 +17,6 @@ const collections = [
     count: 18,
     image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=85&fit=crop',
     desc: 'Stretch-fit and tailored sofa covers in cotton blends, velvet and woven fabric.',
-    priceFrom: '₹1,799',
   },
   {
     id: 3,
@@ -27,7 +25,6 @@ const collections = [
     count: 36,
     image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85&fit=crop',
     desc: 'Egyptian cotton and handloom bedsheets — 400 thread count luxury at honest prices.',
-    priceFrom: '₹899',
   },
   {
     id: 4,
@@ -36,7 +33,6 @@ const collections = [
     count: 42,
     image: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=900&q=85&fit=crop',
     desc: 'Hand-embroidered and block-printed statement cushions by Indian artisan weavers.',
-    priceFrom: '₹349',
   },
   {
     id: 5,
@@ -45,7 +41,6 @@ const collections = [
     count: 29,
     image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=85&fit=crop',
     desc: 'Textured and printed wallpapers in peel-and-stick and paste formats to transform any room.',
-    priceFrom: '₹299/sqft',
   },
   {
     id: 6,
@@ -54,7 +49,6 @@ const collections = [
     count: 15,
     image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=900&q=85&fit=crop',
     desc: 'Handwoven dhurries, Persian-style and contemporary floor rugs in all sizes.',
-    priceFrom: '₹2,499',
   },
   {
     id: 7,
@@ -63,7 +57,6 @@ const collections = [
     count: 58,
     image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=85&fit=crop',
     desc: 'Vases, candle stands, decorative trays and curated accent pieces for every corner.',
-    priceFrom: '₹249',
   },
   {
     id: 8,
@@ -72,7 +65,6 @@ const collections = [
     count: 21,
     image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=85&fit=crop',
     desc: 'Pure handloom textiles woven by master craftsmen — table runners, throws and more.',
-    priceFrom: '₹599',
   },
   {
     id: 9,
@@ -81,7 +73,6 @@ const collections = [
     count: 22,
     image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=85&fit=crop',
     desc: 'Elegant tablecloths, napkins and placemats for everyday dining and festive occasions.',
-    priceFrom: '₹449',
   },
   {
     id: 10,
@@ -90,7 +81,6 @@ const collections = [
     count: 16,
     image: 'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=900&q=85&fit=crop',
     desc: 'Luxury throw blankets and sofa throws in merino, cotton and woven blends.',
-    priceFrom: '₹799',
   },
   {
     id: 11,
@@ -99,7 +89,6 @@ const collections = [
     count: 12,
     image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=85&fit=crop',
     desc: 'Roman blinds, roller blinds and wooden venetians — custom fitted to your windows.',
-    priceFrom: '₹1,299',
   },
   {
     id: 12,
@@ -108,7 +97,6 @@ const collections = [
     count: 19,
     image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=900&q=85&fit=crop',
     desc: 'Decorative bed runners, bolster covers and pillow shams to complete your bedroom look.',
-    priceFrom: '₹549',
   },
 ];
 
@@ -195,12 +183,8 @@ export default function CollectionsPage() {
             </div>
 
             <div className="p-6 pb-8">
-              <div className="flex items-start justify-between mb-3">
+              <div className="mb-3">
                 <h3 className="font-serif text-xl text-jet">{item.name}</h3>
-                <div className="text-right shrink-0 ml-4">
-                  <span className="font-mono text-[9px] text-jet/28 block">from</span>
-                  <span className="font-mono text-xs text-jet/60">{item.priceFrom}</span>
-                </div>
               </div>
               <p className="text-sm text-jet-light font-light leading-relaxed mb-5">{item.desc}</p>
 
